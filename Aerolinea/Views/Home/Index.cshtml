@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script type="text/javascript" language="javascript" src="~/Scripts/jquery-2.1.3.js"></script>
+
+<div class="row panel1">
+    
+    <div class="jumbotron col-xs-4">
+        @*@Html.Partial("VuelosMenuPartial", null, new ViewDataDictionary { { "Activo", "Vuelos" } })*@
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" id="seltab">
+                <li role="presentation" class="active"><a href="#vuelos" aria-controls="vuelos" role="tab" data-toggle="tab">Vuelos</a></li>
+                <li role="presentation" class=""><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
+                    <div class="container contenedorizq">
+                        <div class="input-group">
+                            @*@Html.RadioButtonFor();*@
+                            @*<input type="radio" aria-label="..." class="radio"><a>Ida y Vuelta</a>
+                            <input type="radio" aria-label="..." class="radio"><a>Solo Ida</a>*@
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="hotel">
+                    <h4>LIPSUM & EQUIPMENTS
+                    Proin feugiat aliquam tortor, id hendrerit urna semper pulvinar. Nullam iaculis aliquam risus, nec tempus quam condimentum ut. Lorem Ipsum nisl, imperdiet non dictum quis, sodales quis risus. Donec condimentum gravida rhoncus. Proin sollicitudin mi eget felis congue sed adipiscing tellus vulputate. Cras suscipit aliquam sapien, non pretium turpis ullamcorper vitae. Aenean vitae libero velit, nec malesuada diam.</h4>
+                    
+                    <div class="container">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>e
+
+    <div class="jumbotron col-xs-7">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#seltab a[href="#vuelos"]').tab('show');
+    });
+</script>
