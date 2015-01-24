@@ -18,9 +18,11 @@
 
 .paneles {
     margin-right:2em;
-    margin-top:10em;
+    margin-top:3em;
 }
-
+.panelsup {
+    margin-top:2em;
+}
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
