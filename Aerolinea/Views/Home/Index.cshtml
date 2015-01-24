@@ -6,95 +6,96 @@
 <script type="text/javascript" language="javascript" src="~/Scripts/jquery-2.1.3.js"></script>
 
 <div class="row">
-    
+
     <div class="paneles col-md-4 panel panel-primary panel-heading">
         @using (Html.BeginForm())
         {
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.Id)
-    <div role="tabpanel">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist" id="seltab">
-            <li role="presentation" class="active"><a href="#vuelos" aria-controls="vuelos" role="tab" data-toggle="tab">Vuelos</a></li>
-            <li role="presentation" class=""><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
-        </ul>
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" id="seltab">
+                    <li role="presentation" class="active"><a href="#vuelos" aria-controls="vuelos" role="tab" data-toggle="tab">Vuelos</a></li>
+                    <li role="presentation" class=""><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
+                </ul>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
-                <div class="container contenedorizq">
-                    <div class="form">
-                        <div class="form-group">
-                            @Html.RadioButtonFor(m => m.Seleccion, true, new { @class = "radioSel", @checked = "true" })
-                            @Html.Label("Ida Y Vuelta")
-                        </div>
-                        <div class="form-group">
-                            @Html.RadioButtonFor(m => m.Seleccion, false, new { @class = "radioSel" })
-                            @Html.Label("Solo Ida")
-                        </div>
-                        <div class="form-group">
-                            @Html.Label("Origen", new { @class = "control-label col-md-1" })
-                            @Html.DropDownList("Direction", new List<SelectListItem>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
+                        <div class="container contenedorizq">
+                            <div class="form">
+                                <div class="form-group">
+                                    @Html.RadioButtonFor(m => m.Seleccion, true, new { @class = "radioSel", @checked = "true" })
+                                    @Html.Label("Ida Y Vuelta")
+                                </div>
+                                <div class="form-group">
+                                    @Html.RadioButtonFor(m => m.Seleccion, false, new { @class = "radioSel" })
+                                    @Html.Label("Solo Ida")
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Origen", new { @class = "control-label col-md-1" })
+                                    @Html.DropDownList("Direction", new List<SelectListItem>
                                     {
                                       new SelectListItem { Text = "Iquique", Value = "0" },
                                       new SelectListItem { Text = "Santiago", Value = "1" },
                                       new SelectListItem { Text = "Concepcion", Value = "2" },
                                       new SelectListItem { Text = "Valdivia", Value = "3" }
                                     }, new { @class = "btn btn-default dropdown-toggle" })
-                        </div>
-                        <div class="form-group">
-                            @Html.Label("Destino", new { @class = "control-label col-md-1" })
-                            @Html.DropDownList("Direction", new List<SelectListItem>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Destino", new { @class = "control-label col-md-1" })
+                                    @Html.DropDownList("Direction", new List<SelectListItem>
                                     {
                                       new SelectListItem { Text = "Iquique", Value = "0" },
                                       new SelectListItem { Text = "Santiago", Value = "1" },
                                       new SelectListItem { Text = "Concepcion", Value = "2" },
                                       new SelectListItem { Text = "Valdivia", Value = "3" }
                                     }, new { @class = "btn btn-default dropdown-toggle" })
-                        </div>
-                        <div class="input-append date form-group">
-                            <input type="text" class="form-control" placeholder="Fecha Ida">
-                            <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-                        <div class="input-append date form-group">
-                            <input type="text" class="form-control" placeholder="Fecha Vuelta">
-                            <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-                        <div class="form-group">
-                            @Html.Label("Pasajeros", new { @class = "control-label col-md-1" })
-                            @Html.DropDownList("Direction", new List<SelectListItem>
+                                </div>
+                                <div class="input-append date form-group">
+                                    <input type="text" class="form-control" placeholder="Fecha Ida">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                                <div class="input-append date form-group">
+                                    <input type="text" class="form-control" placeholder="Fecha Vuelta">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Pasajeros", new { @class = "control-label col-md-1" })
+                                    @Html.DropDownList("Direction", new List<SelectListItem>
                                     {
                                       new SelectListItem { Text = "1", Value = "1" },
                                       new SelectListItem { Text = "2", Value = "2" },
                                       new SelectListItem { Text = "3", Value = "3" },
                                     }, new { @class = "btn btn-default dropdown-toggle" })
-                        </div>
-                        <div class="form-group">
-                            @Html.Label("Categoria", new { @class = "control-label col-md-1" })
-                            @Html.DropDownList("Direction", new List<SelectListItem>
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Categoria", new { @class = "control-label col-md-1" })
+                                    @Html.DropDownList("Direction", new List<SelectListItem>
                                     {
                                       new SelectListItem { Text = "Economy", Value = "1" },
                                       new SelectListItem { Text = "Premium Economy", Value = "2" },
                                       new SelectListItem { Text = "Premium Business", Value = "3" },
                                     }, new { @class = "btn btn-default dropdown-toggle" })
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Buscar Vuelos</button>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Buscar Vuelos</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div role="tabpanel" class="tab-pane" id="hotel">
+                        <h4>
+                            LIPSUM & EQUIPMENTS
+                            Proin feugiat aliquam tortor, id hendrerit urna semper pulvinar. Nullam iaculis aliquam risus, nec tempus quam condimentum ut. Lorem Ipsum nisl, imperdiet non dictum quis, sodales quis risus. Donec condimentum gravida rhoncus. Proin sollicitudin mi eget felis congue sed adipiscing tellus vulputate. Cras suscipit aliquam sapien, non pretium turpis ullamcorper vitae. Aenean vitae libero velit, nec malesuada diam.
+                        </h4>
+
+                    </div>
+
                 </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="hotel">
-                <h4>
-                    LIPSUM & EQUIPMENTS
-                    Proin feugiat aliquam tortor, id hendrerit urna semper pulvinar. Nullam iaculis aliquam risus, nec tempus quam condimentum ut. Lorem Ipsum nisl, imperdiet non dictum quis, sodales quis risus. Donec condimentum gravida rhoncus. Proin sollicitudin mi eget felis congue sed adipiscing tellus vulputate. Cras suscipit aliquam sapien, non pretium turpis ullamcorper vitae. Aenean vitae libero velit, nec malesuada diam.
-                </h4>
 
             </div>
-
-        </div>
-
-    </div>
         }
     </div>
 
