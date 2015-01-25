@@ -4,16 +4,19 @@
 }
 
 <script type="text/javascript" language="javascript" src="~/Scripts/jquery-2.1.3.js"></script>
+<script type="text/javascript" language="javascript" src="~/Scripts/locales/bootstrap-datepicker.es.js"></script>
+<script type="text/javascript" language="javascript" src="~/Scripts/locales/bootstrap-datepicker.eu.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/datepicker3.css">
 
-<div class="row">
-    <div class="col-md-12 panelsup">
+<div class="col-md-12">
+    <div class="panelsup" id="panel1">
         <figure>
             <img class="img-responsive" src="http://oi60.tinypic.com/2uiumc3.jpg" width="90" alt="Logo">
         </figure>
         <label>Bullet Airline</label>
     </div>
 
-    <div class="paneles col-md-4 panel panel-primary panel-heading">
+    <div class="paneles col-md-4 panel panel-primary panel-heading" id="panel2">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -59,11 +62,11 @@
                                     }, new { @class = "btn btn-default dropdown-toggle" })
                                 </div>
                                 <div class="input-append date form-group">
-                                    <input type="text" class="form-control" placeholder="Fecha Ida">
+                                    <input data-provide="datepicker" type="text" class="datepicker form-control" placeholder="Fecha Ida">
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
                                 <div class="input-append date form-group">
-                                    <input type="text" class="form-control" placeholder="Fecha Vuelta">
+                                    <input data-provide="datepicker" type="text" class="datepicker form-control" placeholder="Fecha Vuelta">
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
                                 <div class="form-group">
@@ -105,35 +108,18 @@
         }
     </div>
 
-    <div class="paneles col-md-7 panel panel-primary panel-heading">
+    <div class="paneles col-md-7 panel panel-primary panel-heading" id="panel3">
 
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
 
 <script>
     $(function () {
         $('#seltab a[href="#vuelos"]').tab('show');
+        $('.datepicker').datepicker()
+        $('#sandbox-container input').datepicker({
+
+        });
     });
 </script>

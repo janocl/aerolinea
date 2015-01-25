@@ -7,7 +7,9 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.container {
+    /*margin-left:1em;*/
+}
 .contenedorizq{
     margin: 2em 0em;
 }
@@ -17,7 +19,7 @@
 }
 
 .paneles {
-    margin-right:2em;
+    /*margin-right:2em;*/
     margin-top:3em;
 }
 .panelsup {
@@ -37,4 +39,8 @@ textarea {
 }
 .navbar-inverse .navbar-nav > li > a {
     color: white;
+}
+
+#panel2 {
+    margin-right:2em;
 }
