@@ -12,14 +12,14 @@
     <div class="container">
         <div class="col-md-12 container body-content">
             @*<div class="panelsup" id="panel1">
-                <figure>
-                    <img class="img-responsive" src="http://oi60.tinypic.com/2uiumc3.jpg" width="90" alt="Logo">
-                </figure>
-                <label>Bullet Airline</label>
-            </div>*@
+                    <figure>
+                        <img class="img-responsive img-circle" src="http://oi60.tinypic.com/2uiumc3.jpg" width="90" alt="Logo">
+                    </figure>
+                    <label>Bullet Airline</label>
+                </div>*@
 
 
-            <div class="paneles col-md-4 panel panel-primary panel-heading" id="panel2">
+            <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel2">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
@@ -34,65 +34,67 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
-                                <div class="container contenedorizq">
+                                <div class="contenedorfiltros">
                                     <div class="form">
-                                        <div class="form-group">
-                                            @Html.RadioButtonFor(m => m.Seleccion, true, new { @class = "radioSel", @checked = "true" })
-                                            @Html.Label("Ida Y Vuelta")
-                                        </div>
-                                        <div class="form-group">
-                                            @Html.RadioButtonFor(m => m.Seleccion, false, new { @class = "radioSel" })
-                                            @Html.Label("Solo Ida")
-                                        </div>
-                                        <div class="form-group">
-                                            @Html.Label("Desde", new { @class = "control-label col-md-1" })
+                                        @*<div class="form-group">
+                                                @Html.RadioButtonFor(m => m.Seleccion, true, new { @class = "radioSel", @checked = "true" })
+                                                @Html.Label("Ida Y Vuelta")
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.RadioButtonFor(m => m.Seleccion, false, new { @class = "radioSel" })
+                                                @Html.Label("Solo Ida")
+                                            </div>*@
+                                        <div class="form-group col-md-2 grupo1">
+                                            @Html.Label("Desde", new { @class = "control-label etiqueta" })
                                             @Html.DropDownList("Direction", new List<SelectListItem>
-                                    {
-                                      new SelectListItem { Text = "Iquique", Value = "0" },
-                                      new SelectListItem { Text = "Santiago", Value = "1" },
-                                      new SelectListItem { Text = "Concepcion", Value = "2" },
-                                      new SelectListItem { Text = "Valdivia", Value = "3" }
-                                    }, new { @class = "btn btn-default dropdown-toggle" })
+                                                {
+                                                  new SelectListItem { Text = "Iquique", Value = "0" },
+                                                  new SelectListItem { Text = "Santiago", Value = "1" },
+                                                  new SelectListItem { Text = "Concepcion", Value = "2" },
+                                                  new SelectListItem { Text = "Valdivia", Value = "3" }
+                                                }, new { @class = "form-control text-center etiqueta" })
                                         </div>
-                                        <div class="form-group">
-                                            @Html.Label("Hasta", new { @class = "control-label col-md-1" })
+                                        <div class="form-group col-md-2 grupo1">
+                                            @Html.Label("Hasta", new { @class = "control-label etiqueta" })
                                             @Html.DropDownList("Direction", new List<SelectListItem>
-                                    {
-                                      new SelectListItem { Text = "Iquique", Value = "0" },
-                                      new SelectListItem { Text = "Santiago", Value = "1" },
-                                      new SelectListItem { Text = "Concepcion", Value = "2" },
-                                      new SelectListItem { Text = "Valdivia", Value = "3" }
-                                    }, new { @class = "btn btn-default dropdown-toggle" })
+                                                {
+                                                  new SelectListItem { Text = "Iquique", Value = "0" },
+                                                  new SelectListItem { Text = "Santiago", Value = "1" },
+                                                  new SelectListItem { Text = "Concepcion", Value = "2" },
+                                                  new SelectListItem { Text = "Valdivia", Value = "3" }
+                                                }, new { @class = "form-control text-center etiqueta" })
                                         </div>
-                                        <div class="input-append form-group calendar">
+                                        <div class="input-append form-group calendar col-md-2 grupo1">
+                                            @Html.Label("Ida")
                                             <input type="text" class="form-control" placeholder="Fecha de Ida">
                                             <span class="add-on"><i class="icon-th"></i></span>
                                         </div>
-                                        <div class="input-append form-group calendar">
+                                        <div class="input-append form-group calendar col-md-2 grupo1">
+                                            @Html.Label("Retorno")
                                             <input type="text" class="form-control" placeholder="Fecha de Vuelta">
                                             <span class="add-on"><i class="icon-th"></i></span>
                                         </div>
-                                        <div class="form-group">
-                                            @Html.Label("Pasajeros", new { @class = "control-label col-md-1" })
+                                        <div class="form-group col-md-2 grupo1">
+                                            @Html.Label("Pasajeros", new { @class = "control-label etiqueta" })
                                             @Html.DropDownList("Direction", new List<SelectListItem>
-                                    {
-                                      new SelectListItem { Text = "1", Value = "1" },
-                                      new SelectListItem { Text = "2", Value = "2" },
-                                      new SelectListItem { Text = "3", Value = "3" },
-                                    }, new { @class = "btn btn-default dropdown-toggle" })
+                                            {
+                                              new SelectListItem { Text = "1", Value = "1" },
+                                              new SelectListItem { Text = "2", Value = "2" },
+                                              new SelectListItem { Text = "3", Value = "3" },
+                                            }, new { @class = "form-control etiqueta" })
 
                                         </div>
-                                        <div class="form-group">
-                                            @Html.Label("Categoria", new { @class = "control-label col-md-1" })
+                                        <div class="form-group col-md-2 grupo1">
+                                            @Html.Label("Categoria", new { @class = "control-label etiqueta" })
                                             @Html.DropDownList("Direction", new List<SelectListItem>
-                                    {
-                                      new SelectListItem { Text = "Economy", Value = "1" },
-                                      new SelectListItem { Text = "Premium Economy", Value = "2" },
-                                      new SelectListItem { Text = "Premium Business", Value = "3" },
-                                    }, new { @class = "btn btn-default dropdown-toggle" })
+                                            {
+                                              new SelectListItem { Text = "Economy", Value = "1" },
+                                              new SelectListItem { Text = "Premium Economy", Value = "2" },
+                                              new SelectListItem { Text = "Premium Business", Value = "3" },
+                                            }, new { @class = "form-control etiqueta" })
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group text-center">
                                             <button type="submit" class="btn btn-primary">Buscar Vuelos</button>
                                         </div>
                                     </div>
@@ -112,7 +114,7 @@
                 }
             </div>
 
-            <div class="paneles col-md-7 panel panel-primary panel-heading" id="panel3">
+            <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel3">
 
             </div>
         </div>
@@ -130,7 +132,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $(".owl-carousel").owlCarousel({
-            loop:true,
+            loop: true,
             autoplay: true,
             autoplayTimeout: 1000,
             autoWidht: true,
@@ -145,7 +147,7 @@
             format: "dd/mm/yyyy"
 
         });
-        
+
     });
 </script>
 

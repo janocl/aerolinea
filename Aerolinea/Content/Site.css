@@ -1,25 +1,27 @@
 ﻿body {
+    font-size: 16px;
+    font-weight:normal;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #FAFAFA;
 }
 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-.container {
-    /*margin-left:1em;*/
-}
-.contenedorizq{
+
+.contenedorfiltros{
     margin: 2em 0em;
 }
 
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.grupo1 {
+    padding:0px 3px;
+}
 .paneles {
-    /*margin-right:2em;*/
     margin-top:2em;
 }
 .panelsup {
@@ -45,14 +47,8 @@ textarea {
     margin-right:2em;
 }
 
-#owl-demo .owl-item div{
-  /*padding:5px;*/
-}
-#owl-demo .owl-item img{
+#owl-slider .owl-item img{
   display: block;
   width: 100%;
   height: auto;
-  /*-webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;*/
 }
