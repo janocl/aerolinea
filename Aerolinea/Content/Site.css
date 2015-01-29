@@ -46,13 +46,13 @@ textarea {
 }
 
 #owl-demo .owl-item div{
-  padding:5px;
+  /*padding:5px;*/
 }
 #owl-demo .owl-item img{
   display: block;
   width: 100%;
   height: auto;
-  -webkit-border-radius: 3px;
+  /*-webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 3px;*/
 }
