@@ -23,10 +23,16 @@ namespace Aerolinea
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/owl").Include(
+                      "~/Scripts/owl.carousel.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/normalize.css",
                       "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/owl").Include(
+                      "~/Content/owl.carousel.css"));
         }
     }
 }

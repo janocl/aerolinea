@@ -5,15 +5,17 @@
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.css">
+@Styles.Render("~/Content/owl")
 
-
-<div class="col-md-12">
-    <div class="panelsup" id="panel1">
+@Html.Partial("_SliderPartial")
+<div class="col-md-12 container body-content">
+    @*<div class="panelsup" id="panel1">
         <figure>
             <img class="img-responsive" src="http://oi60.tinypic.com/2uiumc3.jpg" width="90" alt="Logo">
         </figure>
         <label>Bullet Airline</label>
-    </div>
+    </div>*@
+
 
     <div class="paneles col-md-4 panel panel-primary panel-heading" id="panel2">
         @using (Html.BeginForm())
@@ -41,7 +43,7 @@
                                     @Html.Label("Solo Ida")
                                 </div>
                                 <div class="form-group">
-                                    @Html.Label("Origen", new { @class = "control-label col-md-1" })
+                                    @Html.Label("Desde", new { @class = "control-label col-md-1" })
                                     @Html.DropDownList("Direction", new List<SelectListItem>
                                     {
                                       new SelectListItem { Text = "Iquique", Value = "0" },
@@ -51,7 +53,7 @@
                                     }, new { @class = "btn btn-default dropdown-toggle" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.Label("Destino", new { @class = "control-label col-md-1" })
+                                    @Html.Label("Hasta", new { @class = "control-label col-md-1" })
                                     @Html.DropDownList("Direction", new List<SelectListItem>
                                     {
                                       new SelectListItem { Text = "Iquique", Value = "0" },
@@ -61,11 +63,11 @@
                                     }, new { @class = "btn btn-default dropdown-toggle" })
                                 </div>
                                 <div class="input-append form-group calendar">
-                                    <input type="text" class="form-control" placeholder="Fecha Ida">
+                                    <input type="text" class="form-control" placeholder="Fecha de Ida">
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
                                 <div class="input-append form-group calendar">
-                                    <input type="text" class="form-control" placeholder="Fecha Vuelta">
+                                    <input type="text" class="form-control" placeholder="Fecha de Vuelta">
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
                                 <div class="form-group">
@@ -113,16 +115,29 @@
     </div>
 </div>
 
-<script type="text/javascript" language="javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+@Scripts.Render("~/bundles/jquery")
 <script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.js"></script>
-
+@Scripts.Render("~/bundles/owl")
 
 <script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery('.calendar input').datepicker({
-            format: "dd/mm/yyyy"
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            loop:true,
+            autoplay: true,
+            autoplayTimeout: 1000,
+            stopOnHover: true,
+            navigation: true,
+            paginationSpeed: 1000,
+            goToFirstSpeed: 2000,
+            singleItem: true,
+            transitionStyle: "fade"
         });
+        $('.calendar input').datepicker({
+            format: "dd/mm/yyyy"
+
+        });
+        
     });
 </script>
 
