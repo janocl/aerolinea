@@ -1,4 +1,7 @@
-﻿body {
+﻿label {
+    font-weight:normal;
+}
+body {
     font-size: 16px;
     font-weight:normal;
     padding-top: 50px;
@@ -18,6 +21,14 @@
 .dl-horizontal dt {
     white-space: normal;
 }
+
+.fa-search:before {
+    padding-right:.5em;
+}
+.fa-map-marker:before {
+    padding-right:.3em;
+}
+
 .grupo1 {
     padding:0px 3px;
 }
@@ -51,4 +62,53 @@ textarea {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.btn-group-select-num >.btn {
+  -webkit-border-radius: 50% !important;
+  border-radius: 50% !important;
+  height: 28px;
+  line-height: 26px;
+  width: 28px;
+  padding: 0;
+  background: none;
+  color: #737373;
+  border: 1px solid transparent;
+}
+.btn-group-select-num >.btn:hover {
+  color: #737373;
+  border-color: #737373;
+  background: none;
+}
+.btn-group-select-num >.btn.active,
+.btn-group-select-num >.btn.active:hover {
+  background: #ed8323;
+  border-color: #e27513;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+}
+.btn-group-select-num {
+  margin-top: 3px;
+}
+.btn-group-select-num > .btn {
+  height: 35px;
+  line-height: 35px;
+  width: 35px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+.btn-group-select-num >.btn.active, .btn-group-select-num >.btn.active:hover {
+    background: #ed8323;
+    border-color: #e27513;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #fff;
+}
+
+::selection {
+  background: #ed8323;
+  color: #fff;
 }

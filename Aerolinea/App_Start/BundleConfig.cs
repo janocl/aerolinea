@@ -8,6 +8,8 @@ namespace Aerolinea
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.UseCdn = true; //Enable CDN support
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -33,6 +35,11 @@ namespace Aerolinea
 
             bundles.Add(new StyleBundle("~/Content/owl").Include(
                       "~/Content/owl.carousel.css"));
+
+            var AwesomeCdn = "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+            
+            bundles.Add(new StyleBundle("~/Content/awesome", AwesomeCdn).Include(
+                        "~/Content/font-awesome.min.css"));
         }
     }
 }

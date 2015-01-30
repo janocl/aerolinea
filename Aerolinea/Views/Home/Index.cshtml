@@ -3,8 +3,9 @@
     ViewBag.Title = "Home Page";
 }
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.css">
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 @Styles.Render("~/Content/owl")
 
 @Html.Partial("_SliderPartial")
@@ -65,23 +66,40 @@
                                                 }, new { @class = "form-control text-center etiqueta" })
                                         </div>
                                         <div class="input-append form-group calendar col-md-2 grupo1">
+                                            <span class="add-on"><i class="fa fa-map-marker"></i></span>
                                             @Html.Label("Ida")
                                             <input type="text" class="form-control" placeholder="Fecha de Ida">
-                                            <span class="add-on"><i class="icon-th"></i></span>
                                         </div>
                                         <div class="input-append form-group calendar col-md-2 grupo1">
+                                            <span class="add-on"><i class="fa fa-map-marker"></i></span>
                                             @Html.Label("Retorno")
                                             <input type="text" class="form-control" placeholder="Fecha de Vuelta">
-                                            <span class="add-on"><i class="icon-th"></i></span>
                                         </div>
                                         <div class="form-group col-md-2 grupo1">
                                             @Html.Label("Pasajeros", new { @class = "control-label etiqueta" })
-                                            @Html.DropDownList("Direction", new List<SelectListItem>
+                                            @*@Html.DropDownList("Direction", new List<SelectListItem>
                                             {
                                               new SelectListItem { Text = "1", Value = "1" },
                                               new SelectListItem { Text = "2", Value = "2" },
                                               new SelectListItem { Text = "3", Value = "3" },
-                                            }, new { @class = "form-control etiqueta" })
+                                            }, new { @class = "form-control etiqueta" })*@
+                                            <div class="form-group form-group-lg form-group-select-plus">
+                                                <div class="btn-group btn-group-select-num" data-toggle="buttons">
+                                                    <label class="btn btn-primary active">
+                                                        <input type="radio" name="options" />1
+                                                    </label>
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" />2
+                                                    </label>
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" />3
+                                                    </label>
+                                                    <label class="btn btn-primary">
+                                                        <input type="radio" name="options" />+
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
 
                                         </div>
                                         <div class="form-group col-md-2 grupo1">
@@ -94,8 +112,10 @@
                                             }, new { @class = "form-control etiqueta" })
                                         </div>
 
-                                        <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-primary">Buscar Vuelos</button>
+                                        <div class="form-group col-md-12 text-center">
+                                            <button type="submit" class="btn btn-default fa fa-search">
+                                                @Html.Label("BUSCAR", new { @class = "control-label etiqueta" })
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
