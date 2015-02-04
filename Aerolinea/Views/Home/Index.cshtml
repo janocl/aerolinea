@@ -98,12 +98,12 @@
 
                                         <div class="form-group col-md-12 text-center">
                                             <button type="submit" class="btn btn-default fa fa-search">
-                                                @Html.Label("BUSCAR", new { @class = "control-label etiqueta" })
+                                                @Html.Label("BUSCAR", new { @class = "control-label etiqueta", @id="btnbuscar"})
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div class="paneltabla">
+                                    <div id="datatable" style="display:none;">
                                         <table id="table">
                                             <thead>
                                                 <tr>
@@ -167,6 +167,14 @@
         $('.calendar input').datepicker({
             format: "dd/mm/yyyy"
 
+        });
+        $('#btnbuscar').click(function () {
+            //if ($('#datatable').visible = false) {
+                $('#datatable').slideDown('slow');
+            //} else {
+            //    $('#datatable').slideUp('slow');
+            //}
+            
         });
 
     });
