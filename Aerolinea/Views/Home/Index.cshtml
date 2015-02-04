@@ -102,21 +102,24 @@
                                             </button>
                                         </div>
                                     </div>
+
+                                    <div class="paneltabla">
+                                        <table id="table">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="vuelo">Vuelo</th>
+                                                    <th data-field="salida">Salida</th>
+                                                    <th data-field="llegada">Llegada</th>
+                                                    <th data-field="precio">Precio</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
 
-                            <div class="paneltabla">
-                                <table id="table">
-                                    <thead>
-                                        <tr>
-                                            <th data-field="name">Name</th>
-                                            <th data-field="stargazers_count">Stars</th>
-                                            <th data-field="forks_count">Forks</th>
-                                            <th data-field="description">Description</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+                            
 
                             <div role="tabpanel" class="tab-pane" id="hotel">
                                 <h4>
@@ -170,34 +173,16 @@
     
     var data = [
     {
-        "name": "bootstrap-table",
-        "stargazers_count": "526",
-        "forks_count": "122",
-        "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) "
+        "vuelo": "LA 256",
+        "salida": "17:00",
+        "llegada": "18:30",
+        "precio": "55.500"
     },
     {
-        "name": "multiple-select",
-        "stargazers_count": "288",
-        "forks_count": "150",
-        "description": "A jQuery plugin to select multiple elements with checkboxes :)"
-    },
-    {
-        "name": "bootstrap-show-password",
-        "stargazers_count": "32",
-        "forks_count": "11",
-        "description": "Show/hide password plugin for twitter bootstrap."
-    },
-    {
-        "name": "blog",
-        "stargazers_count": "13",
-        "forks_count": "4",
-        "description": "my blog"
-    },
-    {
-        "name": "scutech-redmine",
-        "stargazers_count": "6",
-        "forks_count": "3",
-        "description": "Redmine notification tools for chrome extension."
+        "vuelo": "LA 366",
+        "salida": "18:00",
+        "llegada": "19:30",
+        "precio": "60.000"
     }
     ];
 
