@@ -37,14 +37,6 @@
                             <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
                                 <div class="contenedorfiltros">
                                     <div class="form">
-                                        @*<div class="form-group">
-                                                @Html.RadioButtonFor(m => m.Seleccion, true, new { @class = "radioSel", @checked = "true" })
-                                                @Html.Label("Ida Y Vuelta")
-                                            </div>
-                                            <div class="form-group">
-                                                @Html.RadioButtonFor(m => m.Seleccion, false, new { @class = "radioSel" })
-                                                @Html.Label("Solo Ida")
-                                            </div>*@
                                         <div class="form-group col-md-2 grupo1">
                                             @Html.Label("Desde", new { @class = "control-label etiqueta" })
                                             @Html.DropDownList("Direction", new List<SelectListItem>
@@ -77,12 +69,6 @@
                                         </div>
                                         <div class="form-group col-md-2 grupo1">
                                             @Html.Label("Pasajeros", new { @class = "control-label etiqueta" })
-                                            @*@Html.DropDownList("Direction", new List<SelectListItem>
-                                            {
-                                              new SelectListItem { Text = "1", Value = "1" },
-                                              new SelectListItem { Text = "2", Value = "2" },
-                                              new SelectListItem { Text = "3", Value = "3" },
-                                            }, new { @class = "form-control etiqueta" })*@
                                             <div class="form-group form-group-lg form-group-select-plus">
                                                 <div class="btn-group btn-group-select-num" data-toggle="buttons">
                                                     <label class="btn btn-primary active">
@@ -99,8 +85,6 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            
-
                                         </div>
                                         <div class="form-group col-md-2 grupo1">
                                             @Html.Label("Categoria", new { @class = "control-label etiqueta" })
@@ -120,6 +104,20 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="paneltabla">
+                                <table id="table">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="name">Name</th>
+                                            <th data-field="stargazers_count">Stars</th>
+                                            <th data-field="forks_count">Forks</th>
+                                            <th data-field="description">Description</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+
                             <div role="tabpanel" class="tab-pane" id="hotel">
                                 <h4>
                                     LIPSUM & EQUIPMENTS
@@ -169,6 +167,47 @@
         });
 
     });
+    
+    var data = [
+    {
+        "name": "bootstrap-table",
+        "stargazers_count": "526",
+        "forks_count": "122",
+        "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) "
+    },
+    {
+        "name": "multiple-select",
+        "stargazers_count": "288",
+        "forks_count": "150",
+        "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+    },
+    {
+        "name": "bootstrap-show-password",
+        "stargazers_count": "32",
+        "forks_count": "11",
+        "description": "Show/hide password plugin for twitter bootstrap."
+    },
+    {
+        "name": "blog",
+        "stargazers_count": "13",
+        "forks_count": "4",
+        "description": "my blog"
+    },
+    {
+        "name": "scutech-redmine",
+        "stargazers_count": "6",
+        "forks_count": "3",
+        "description": "Redmine notification tools for chrome extension."
+    }
+    ];
+
+    $(function () {
+        $('#table').bootstrapTable({
+            data: data
+        });
+    });
+
+
 </script>
 
 
