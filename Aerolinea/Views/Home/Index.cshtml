@@ -103,14 +103,30 @@
                                         </div>
                                     </div>
 
-                                    <div id="datatable" style="display:none;">
-                                        <table id="table">
+                                    <div id="datatable1" style="display:none;">
+                                        <table id="table1">
                                             <thead>
                                                 <tr>
+                                                    <th data-field="ida">Ida</th>
                                                     <th data-field="vuelo">Vuelo</th>
                                                     <th data-field="salida">Salida</th>
                                                     <th data-field="llegada">Llegada</th>
-                                                    <th data-field="precio">Precio</th>
+                                                    <th data-field="cabina">Cabina</th>
+                                                    <th data-field="tarifa">Tarifa</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <div id="datatable2" style="display:none;">
+                                        <table id="table2">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="vuelta">Vuelta</th>
+                                                    <th data-field="vuelo">Vuelo</th>
+                                                    <th data-field="salida">Salida</th>
+                                                    <th data-field="llegada">Llegada</th>
+                                                    <th data-field="cabina">Cabina</th>
+                                                    <th data-field="tarifa">Tarifa</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -164,40 +180,48 @@
             items: 1,
             transitionStyle: "fade"
         });
+
         $('.calendar input').datepicker({
             format: "dd/mm/yyyy"
-
         });
-        $('#btnbuscar').click(function () {
-            //if ($('#datatable').visible = false) {
-                $('#datatable').slideDown('slow');
-            //} else {
-            //    $('#datatable').slideUp('slow');
-            //}
-            
-        });
-
     });
-    
-    var data = [
-    {
-        "vuelo": "LA 256",
-        "salida": "17:00",
-        "llegada": "18:30",
-        "precio": "55.500"
-    },
-    {
-        "vuelo": "LA 366",
-        "salida": "18:00",
-        "llegada": "19:30",
-        "precio": "60.000"
+
+
+    var data = {  
+        "salida":[  
+           {
+               "ida": "Santiago - Iquique",
+               "vuelo": "LA 256",
+               "salida": "17:00",
+               "llegada": "18:30",
+               "cabina": "Economy",
+               "tarifa": "48.500"
+           }
+        ],
+        "regreso":[  
+           {
+               "vuelta": "Iquique - Santiago",
+               "vuelo": "LA 366",
+               "salida": "18:00",
+               "llegada": "19:30",
+               "cabina": "Economy",
+               "tarifa": "55.000"
+           }
+        ]
     }
-    ];
 
     $(function () {
-        $('#table').bootstrapTable({
-            data: data
+        $('#table1').bootstrapTable({
+            data: data.salida
         });
+        $('#table2').bootstrapTable({
+            data: data.regreso
+        });
+        $('#btnbuscar').click(function () {
+            $('#datatable1').slideDown('slow');
+            $('#datatable2').slideDown('slow');
+        });
+
     });
 
 
