@@ -32,6 +32,9 @@ body {
 .grupo1 {
     padding:0px 3px;
 }
+.logo {
+    padding-bottom:.8em;
+}
 .paneles {
     margin-top:2em;
 }
