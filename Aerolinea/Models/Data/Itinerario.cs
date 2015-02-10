@@ -12,22 +12,19 @@ namespace Aerolinea.Models.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Vuelo
+    public partial class Itinerario
     {
-        public Vuelo()
+        public Itinerario()
         {
-            this.Pasaje = new HashSet<Pasaje>();
+            this.Vuelo = new HashSet<Vuelo>();
         }
     
         public int Id { get; set; }
-        public int Capacidad { get; set; }
-        public string ModeloAvion { get; set; }
-        public string NumeroVuelo { get; set; }
-        public int IdEmpresa { get; set; }
-        public int IdItinerario { get; set; }
+        public int IdOrigen { get; set; }
+        public int IdDestino { get; set; }
     
-        public virtual Empresa Empresa { get; set; }
-        public virtual Itinerario Itinerario { get; set; }
-        public virtual ICollection<Pasaje> Pasaje { get; set; }
+        public virtual Destino Destino { get; set; }
+        public virtual Origen Origen { get; set; }
+        public virtual ICollection<Vuelo> Vuelo { get; set; }
     }
 }

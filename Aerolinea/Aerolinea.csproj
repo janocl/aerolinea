@@ -123,10 +123,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\Aeropuerto.cs">
+      <DependentUpon>ModelAerolinea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Data\Ciudad.cs">
+      <DependentUpon>ModelAerolinea.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Data\Cliente.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\Destino.cs">
+      <DependentUpon>ModelAerolinea.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Data\Empresa.cs">
+      <DependentUpon>ModelAerolinea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Data\Itinerario.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\ModelAerolinea.Context.cs">
@@ -143,6 +155,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelAerolinea.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Data\Origen.cs">
+      <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\Pasaje.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
