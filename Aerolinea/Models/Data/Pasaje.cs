@@ -21,7 +21,7 @@ namespace Aerolinea.Models.Data
         public int IdCliente { get; set; }
         public int IdVuelo { get; set; }
     
-        public virtual Cliente Cliente { get; set; }
         public virtual Vuelo Vuelo { get; set; }
+        public virtual Cliente Cliente { get; set; }
     }
 }

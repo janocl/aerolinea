@@ -24,7 +24,7 @@ namespace Aerolinea.Models.Data
         public string Nombre { get; set; }
         public int Edad { get; set; }
         public int Telefono { get; set; }
-        public long Email { get; set; }
+        public string Email { get; set; }
     
         public virtual ICollection<Pasaje> Pasaje { get; set; }
     }

@@ -27,12 +27,12 @@ namespace Aerolinea.Models.Data
     
         public virtual DbSet<Aeropuerto> Aeropuerto { get; set; }
         public virtual DbSet<Ciudad> Ciudad { get; set; }
-        public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Destino> Destino { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
         public virtual DbSet<Itinerario> Itinerario { get; set; }
         public virtual DbSet<Origen> Origen { get; set; }
         public virtual DbSet<Pasaje> Pasaje { get; set; }
         public virtual DbSet<Vuelo> Vuelo { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
     }
 }

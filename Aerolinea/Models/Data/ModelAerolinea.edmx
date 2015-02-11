@@ -29,7 +29,7 @@
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Edad" Type="int" Nullable="false" />
           <Property Name="Telefono" Type="int" Nullable="false" />
-          <Property Name="Email" Type="bigint" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Destino">
           <Key>
@@ -250,7 +250,6 @@
         <EntityContainer Name="AerolineaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aeropuerto" EntityType="AerolineaModel.Aeropuerto" />
           <EntitySet Name="Ciudad" EntityType="AerolineaModel.Ciudad" />
-          <EntitySet Name="Cliente" EntityType="AerolineaModel.Cliente" />
           <EntitySet Name="Destino" EntityType="AerolineaModel.Destino" />
           <EntitySet Name="Empresa" EntityType="AerolineaModel.Empresa" />
           <EntitySet Name="Itinerario" EntityType="AerolineaModel.Itinerario" />
@@ -268,10 +267,6 @@
           <AssociationSet Name="FK_Origen_Ciudad" Association="AerolineaModel.FK_Origen_Ciudad">
             <End Role="Ciudad" EntitySet="Ciudad" />
             <End Role="Origen" EntitySet="Origen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pasaje_Cliente" Association="AerolineaModel.FK_Pasaje_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Pasaje" EntitySet="Pasaje" />
           </AssociationSet>
           <AssociationSet Name="FK_Itinerario_Destino" Association="AerolineaModel.FK_Itinerario_Destino">
             <End Role="Destino" EntitySet="Destino" />
@@ -293,6 +288,11 @@
             <End Role="Vuelo" EntitySet="Vuelo" />
             <End Role="Pasaje" EntitySet="Pasaje" />
           </AssociationSet>
+          <EntitySet Name="Cliente" EntityType="AerolineaModel.Cliente" />
+          <AssociationSet Name="FK_Pasaje_Cliente" Association="AerolineaModel.FK_Pasaje_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Pasaje" EntitySet="Pasaje" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Aeropuerto">
           <Key>
@@ -312,18 +312,6 @@
           <NavigationProperty Name="Aeropuerto" Relationship="AerolineaModel.FK_Ciudad_Aeropuerto" FromRole="Ciudad" ToRole="Aeropuerto" />
           <NavigationProperty Name="Destino" Relationship="AerolineaModel.FK_Destino_Ciudad" FromRole="Ciudad" ToRole="Destino" />
           <NavigationProperty Name="Origen" Relationship="AerolineaModel.FK_Origen_Ciudad" FromRole="Ciudad" ToRole="Origen" />
-        </EntityType>
-        <EntityType Name="Cliente">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rut" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Edad" Type="Int32" Nullable="false" />
-          <Property Name="Telefono" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Pasaje" Relationship="AerolineaModel.FK_Pasaje_Cliente" FromRole="Cliente" ToRole="Pasaje" />
         </EntityType>
         <EntityType Name="Destino">
           <Key>
@@ -378,8 +366,8 @@
           <Property Name="Valor" Type="Int32" Nullable="false" />
           <Property Name="IdCliente" Type="Int32" Nullable="false" />
           <Property Name="IdVuelo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="AerolineaModel.FK_Pasaje_Cliente" FromRole="Pasaje" ToRole="Cliente" />
           <NavigationProperty Name="Vuelo" Relationship="AerolineaModel.FK_Pasaje_Vuelo" FromRole="Pasaje" ToRole="Vuelo" />
+          <NavigationProperty Name="Cliente" Relationship="AerolineaModel.FK_Pasaje_Cliente" FromRole="Pasaje" ToRole="Cliente" />
         </EntityType>
         <EntityType Name="Vuelo">
           <Key>
@@ -428,18 +416,6 @@
             </Principal>
             <Dependent Role="Origen">
               <PropertyRef Name="IdCiudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pasaje_Cliente">
-          <End Type="AerolineaModel.Cliente" Role="Cliente" Multiplicity="1" />
-          <End Type="AerolineaModel.Pasaje" Role="Pasaje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pasaje">
-              <PropertyRef Name="IdCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -503,6 +479,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rut" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pasaje" Relationship="AerolineaModel.FK_Pasaje_Cliente" FromRole="Cliente" ToRole="Pasaje" />
+        </EntityType>
+        <Association Name="FK_Pasaje_Cliente">
+          <End Type="AerolineaModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="AerolineaModel.Pasaje" Role="Pasaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pasaje">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -522,18 +522,6 @@
               <MappingFragment StoreEntitySet="Ciudad">
                 <ScalarProperty Name="IdAeropuerto" ColumnName="IdAeropuerto" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="AerolineaModel.Cliente">
-              <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Edad" ColumnName="Edad" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Rut" ColumnName="Rut" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -597,6 +585,18 @@
                 <ScalarProperty Name="NumeroVuelo" ColumnName="NumeroVuelo" />
                 <ScalarProperty Name="ModeloAvion" ColumnName="ModeloAvion" />
                 <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="AerolineaModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

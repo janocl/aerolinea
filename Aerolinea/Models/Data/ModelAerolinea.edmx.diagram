@@ -7,22 +7,22 @@
       <Diagram DiagramId="f2ed46da43074eac91eb3c2ee84d7c49" Name="Diagram1">
         <EntityTypeShape EntityType="AerolineaModel.Aeropuerto" Width="1.5" PointX="10.625" PointY="3.5" />
         <EntityTypeShape EntityType="AerolineaModel.Ciudad" Width="1.5" PointX="8.75" PointY="3.375" />
-        <EntityTypeShape EntityType="AerolineaModel.Cliente" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="AerolineaModel.Destino" Width="1.5" PointX="6.875" PointY="2" />
-        <EntityTypeShape EntityType="AerolineaModel.Empresa" Width="1.5" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="AerolineaModel.Empresa" Width="1.5" PointX="2.75" PointY="0.5" />
         <EntityTypeShape EntityType="AerolineaModel.Itinerario" Width="1.5" PointX="4.875" PointY="3.25" />
         <EntityTypeShape EntityType="AerolineaModel.Origen" Width="1.5" PointX="6.875" PointY="4.375" />
         <EntityTypeShape EntityType="AerolineaModel.Pasaje" Width="1.5" PointX="0.5" PointY="3.25" />
-        <EntityTypeShape EntityType="AerolineaModel.Vuelo" Width="1.5" PointX="2.875" PointY="3.25" />
+        <EntityTypeShape EntityType="AerolineaModel.Vuelo" Width="1.5" PointX="2.75" PointY="3.25" />
         <AssociationConnector Association="AerolineaModel.FK_Ciudad_Aeropuerto" />
         <AssociationConnector Association="AerolineaModel.FK_Destino_Ciudad" />
         <AssociationConnector Association="AerolineaModel.FK_Origen_Ciudad" />
-        <AssociationConnector Association="AerolineaModel.FK_Pasaje_Cliente" />
         <AssociationConnector Association="AerolineaModel.FK_Itinerario_Destino" ></AssociationConnector>
         <AssociationConnector Association="AerolineaModel.FK_Vuelo_Empresa" />
         <AssociationConnector Association="AerolineaModel.FK_Itinerario_Origen" />
         <AssociationConnector Association="AerolineaModel.FK_Vuelo_Itinerario" />
         <AssociationConnector Association="AerolineaModel.FK_Pasaje_Vuelo" />
+        <EntityTypeShape EntityType="AerolineaModel.Cliente" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="AerolineaModel.FK_Pasaje_Cliente" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
