@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Aerolinea.Models.Data
+namespace Aerolinea.Models.Domain.Data
 {
     using System;
     using System.Data.Entity;

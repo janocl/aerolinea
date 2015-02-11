@@ -120,52 +120,57 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VueloController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Aeropuerto.cs">
+    <Compile Include="Models\Domain\Business\IRepository.cs" />
+    <Compile Include="Models\Domain\Business\RepositoryEF.cs" />
+    <Compile Include="Models\Domain\Business\VueloMgr.cs" />
+    <Compile Include="Models\Domain\Data\Aeropuerto.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Ciudad.cs">
+    <Compile Include="Models\Domain\Data\Ciudad.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Cliente.cs">
+    <Compile Include="Models\Domain\Data\Cliente.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Destino.cs">
+    <Compile Include="Models\Domain\Data\Destino.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Empresa.cs">
+    <Compile Include="Models\Domain\Data\Empresa.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Itinerario.cs">
+    <Compile Include="Models\Domain\Data\Itinerario.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\ModelAerolinea.Context.cs">
+    <Compile Include="Models\Domain\Data\ModelAerolinea.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelAerolinea.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\ModelAerolinea.cs">
+    <Compile Include="Models\Domain\Data\ModelAerolinea.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\ModelAerolinea.Designer.cs">
+    <Compile Include="Models\Domain\Data\ModelAerolinea.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelAerolinea.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Origen.cs">
+    <Compile Include="Models\Domain\Data\Origen.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Pasaje.cs">
+    <Compile Include="Models\Domain\Data\Pasaje.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\Vuelo.cs">
+    <Compile Include="Models\Domain\Data\Vuelo.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViajeView.cs" />
+    <Compile Include="Models\VueloView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -191,19 +196,19 @@
     <Content Include="Scripts\alertify\alertify.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Data\ModelAerolinea.edmx">
+    <EntityDeploy Include="Models\Domain\Data\ModelAerolinea.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelAerolinea.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Data\ModelAerolinea.Context.tt">
+    <Content Include="Models\Domain\Data\ModelAerolinea.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelAerolinea.edmx</DependentUpon>
       <LastGenOutput>ModelAerolinea.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Data\ModelAerolinea.edmx.diagram">
+    <Content Include="Models\Domain\Data\ModelAerolinea.edmx.diagram">
       <DependentUpon>ModelAerolinea.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Data\ModelAerolinea.tt">
+    <Content Include="Models\Domain\Data\ModelAerolinea.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelAerolinea.edmx</DependentUpon>
       <LastGenOutput>ModelAerolinea.cs</LastGenOutput>
@@ -241,7 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Business\" />
+    <Folder Include="Views\Vuelo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

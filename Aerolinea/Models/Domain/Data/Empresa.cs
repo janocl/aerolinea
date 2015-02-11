@@ -7,21 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Aerolinea.Models.Data
+namespace Aerolinea.Models.Domain.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Pasaje
+    public partial class Empresa
     {
-        public int Id { get; set; }
-        public string Clase { get; set; }
-        public string Asiento { get; set; }
-        public int Valor { get; set; }
-        public int IdCliente { get; set; }
-        public int IdVuelo { get; set; }
+        public Empresa()
+        {
+            this.Vuelo = new HashSet<Vuelo>();
+        }
     
-        public virtual Vuelo Vuelo { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        public int Id { get; set; }
+        public string Run { get; set; }
+        public string Nombre { get; set; }
+        public Nullable<int> Telefono { get; set; }
+    
+        public virtual ICollection<Vuelo> Vuelo { get; set; }
     }
 }
