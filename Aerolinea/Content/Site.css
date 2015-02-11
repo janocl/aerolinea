@@ -35,11 +35,22 @@ body {
 .logo {
     padding-bottom:.8em;
 }
+.navbar-inverse, .navbar {
+    background-color:#2E548C;
+    border-color:none;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
 .paneles {
     margin-top:2em;
 }
 .panelsup {
     padding-top:2em;
+}
+/*Se debe cambiar la propiedad para que sea visible y funcione el responsive de la tabla con el collapse*/
+.table-responsive {
+    overflow-x: visible !important;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -49,24 +60,10 @@ textarea {
     max-width: 280px;
 }
 
-.navbar-inverse, .navbar {
-    background-color:#2E548C;
-    border-color:none;
-}
-.navbar-inverse .navbar-nav > li > a {
-    color: white;
-}
 
-#panel2 {
-    margin-right:2em;
-}
 
-#owl-slider .owl-item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
+/* Propiedades para realizar el efecto en los radiobutton de la seleccion de pasajeros */
 .btn-group-select-num >.btn {
   -webkit-border-radius: 50% !important;
   border-radius: 50% !important;
@@ -99,7 +96,6 @@ textarea {
   line-height: 35px;
   width: 35px;
 }
-
 input[type="radio"]{
     display: none;
 }
@@ -111,12 +107,17 @@ input[type="radio"]{
     color: #fff;
 }
 
-::selection {
-  background: #ed8323;
-  color: #fff;
-}
 
 
 #datatable2 {
     margin-top:2em;
 }
+#owl-slider .owl-item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#panel2 {
+    margin-right:2em;
+}
+
