@@ -169,7 +169,8 @@
     <Compile Include="Models\Domain\Data\Vuelo.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViajeView.cs" />
+    <Compile Include="Models\DestinoView.cs" />
+    <Compile Include="Models\OrigenView.cs" />
     <Compile Include="Models\VueloView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

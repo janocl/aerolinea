@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Aerolinea.Models.ViajeView>
-@using Aerolinea.Models
+﻿@model IEnumerable<Aerolinea.Models.VueloView>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -24,8 +23,9 @@
             <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel2">
                 @using (Html.BeginForm())
                 {
+                    
                     @Html.AntiForgeryToken()
-                    @*@Html.HiddenFor(model => model.Id)*@
+                    @*@Html.HiddenFor(model => model)*@
                     <div role="tabpanel">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" id="seltab">
@@ -98,7 +98,7 @@
                                         <div class="table-responsive">
                                             <table id="table1" class="table table-hover">
                                                 <thead>
-                                                    <tr>
+                                                    <tr class="active">
                                                         <th>Ida</th>
                                                         <th>Vuelo</th>
                                                         <th>Salida</th>
@@ -112,10 +112,10 @@
                                                     {
                                                         <tr>
                                                             <th>
-                                                                @Html.DisplayFor(m=>item.FechaIda.ToString())
+                                                                @Html.DisplayFor(m=>item.Ida.Select(x=>x.Ciudad))
                                                             </th>
                                                             <th>
-                                                                @Html.DisplayFor(m=>item.FechaRegreso.ToString())
+                                                                @Html.DisplayFor(m=>item.Llegada.Select(x=>x.Ciudad))
                                                             </th>
                                                             <th></th>
                                                             <th></th>
