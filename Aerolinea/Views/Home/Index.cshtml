@@ -99,30 +99,36 @@
                                             <table id="table1" class="table table-hover">
                                                 <thead>
                                                     <tr class="active">
-                                                        <th>Ida</th>
+                                                        <th>Destino</th>
                                                         <th>Vuelo</th>
-                                                        <th>Salida</th>
+                                                        @*<th>Salida</th>*@
                                                         <th>Llegada</th>
                                                         <th>Cabina</th>
                                                         <th>Tarifa</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @*@foreach (var item in Model)
+                                                    @foreach (var item in Model)
                                                     {
                                                         <tr>
                                                             <th>
-                                                                @Html.DisplayFor(m=>item.Ida.Select(x=>x.Ciudad))
+                                                                @Html.DisplayFor(m=>item.Destino)
                                                             </th>
                                                             <th>
-                                                                @Html.DisplayFor(m=>item.Llegada.Select(x=>x.Ciudad))
+                                                                @Html.DisplayFor(m=>item.NumeroVuelo)
                                                             </th>
-                                                            <th></th>
-                                                            <th></th>
-                                                            <th></th>
-                                                            <th></th>
+                                                            <th>
+                                                                @Html.DisplayFor(m=>item.FechaLlegada.ToShortDateString())
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayFor(m=>item.Clase)
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayFor(m=>item.Valor)
+                                                            </th>
+                                                           
                                                         </tr>
-                                                    }*@
+                                                    }
                                                     @*<tr>
                                                         <th data-bind="text:ida"></th>
                                                         <th data-bind="text:vuelo"></th>

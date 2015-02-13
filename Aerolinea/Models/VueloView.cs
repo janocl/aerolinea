@@ -8,9 +8,12 @@ namespace Aerolinea.Models
 {
     public class VueloView
     {
-        public List<Origen> Ida { get; set; }
-        public List<Destino> Llegada { get; set; }
-        public List<Vuelo> NumeroVuelo { get; set; }
+        public int Valor { get; set; }
+        public string Clase { get; set; }
+        public string NumeroVuelo { get; set; }
+        public DateTime FechaLlegada { get; set; }
+        public string Destino { get; set; }
+        public string Aeropuerto { get; set; }
 
     }
 }
