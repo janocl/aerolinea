@@ -28,7 +28,8 @@ namespace Aerolinea.Controllers
         // GET: Vuelo
         public ActionResult Index()
         {
-            return View();
+            var obj = mgr.BusquedaDeVuelos();
+            return View(obj);
         }
 
         public ActionResult About()
