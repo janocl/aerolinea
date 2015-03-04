@@ -8,31 +8,25 @@ namespace Aerolinea.Models.Domain.Business
 {
     public class RepositoryEF : IRepository
     {
-
-        
-        public IEnumerable<VueloView> BusquedaDeVuelos()
+        private List<VueloView> list = null;
+        public IEnumerable<VueloView> BusquedaVueloOrigen() 
         {
-            var list = new List<VueloView>();
             using (var db = new AerolineaEntities())
             {
-                list = (from p in db.Pasaje
-                        join v in db.Vuelo on p.IdVuelo equals v.Id
-                        join i in db.Itinerario on v.IdItinerario equals i.Id
-                        join d in db.Destino on i.IdDestino equals d.Id
-                        join c in db.Ciudad on d.IdCiudad equals c.Id
+                list = (from o in db.Origen
+                        join c in db.Ciudad on o.IdCiudad equals c.Id
                         join a in db.Aeropuerto on c.IdAeropuerto equals a.Id
                         select new VueloView()
                         {
-                            Valor = p.Valor,
-                            Clase = p.Clase,
-                            NumeroVuelo = v.NumeroVuelo,
-                            FechaLlegada = d.FechaLlegada,
-                            Destino = c.Nombre,
+                            FechaSalida = o.FechaSalida,
+                            Origen = c.Nombre,
                             Aeropuerto = a.Nombre
                         }).ToList();
 
             }
             return list;
         }
+
+
     }
 }

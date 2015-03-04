@@ -7,7 +7,7 @@ namespace Aerolinea.Models.Domain.Business
 {
     public interface IRepository
     {
-        IEnumerable<VueloView> BusquedaDeVuelos();
+        IEnumerable<VueloView> BusquedaVueloOrigen();
 
     }
 }

@@ -1,55 +1,55 @@
-﻿using Aerolinea.Models.Domain.Business;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Aerolinea.Models.Domain.Business;
 using Aerolinea.Models;
 
 namespace Aerolinea.Controllers
 {
-    public class VueloController : Controller
+    public class HomeController : Controller
     {
-
         private VueloMgr mgr = null;
         internal IRepository _repo = null;
+        IEnumerable<VueloView> origen = null;
 
-        public VueloController()
+        public HomeController()
             : this(new RepositoryEF())
         {
         }
 
-        public VueloController(IRepository repo)
+        public HomeController(IRepository repo)
         {
             _repo = repo;
             mgr = new VueloMgr(_repo);
         }
 
-        // GET: Vuelo
+        // GET: Home
         public ActionResult Index()
         {
-            var obj = mgr.BusquedaDeVuelos();
-            return View(obj);
+            //var obj = mgr.BusquedaVueloOrigen();
+            //return View(obj);
+            return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
+        [HttpPost]
         public ActionResult Search()
         {
-            var obj = mgr.BusquedaDeVuelos();
-            return View(obj);
+            origen = mgr.BusquedaVueloOrigen();
+            return View("Index", origen);
         }
 
 

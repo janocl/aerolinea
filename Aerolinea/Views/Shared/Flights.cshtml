@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Aerolinea.Models.VueloView>
+
+<div id="tablas" class="collapse">
+    <div class="table-responsive">
+        <table id="table1" class="table table-hover">
+            <thead>
+                <tr class="active">
+                    <th>Destino</th>
+                    <th>Vuelo</th>
+                    <th>Llegada</th>
+                    <th>Cabina</th>
+                    <th>Tarifa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null || Model.Count() == 0)
+                {
+                    <tr><td>No se han encontrado vuelos disponibles.</td></tr>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(m => item.Destino)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(m => item.NumeroVuelo)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(m => item.FechaLlegada)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(m => item.Clase)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(m => item.Valor)
+                            </th>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
