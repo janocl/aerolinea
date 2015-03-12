@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Aerolinea.Models.VueloView>
+﻿@using Aerolinea.Models
+
+@model IEnumerable<Aerolinea.Models.VueloView>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -21,171 +23,89 @@
 
 
             <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel2">
-                @*@using (Html.BeginForm("Search", "Home", FormMethod.Post))*@
-                @*{*@
-                    
-                    
-                    @*@Html.HiddenFor(model => model)*@
-                    <div role="tabpanel">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist" id="seltab">
-                            <li role="presentation" class="active"><a href="#vuelos" aria-controls="vuelos" role="tab" data-toggle="tab">Vuelos</a></li>
-                            <li role="presentation" class=""><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
-                        </ul>
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="seltab">
+                        <li role="presentation" class="active"><a href="#vuelos" aria-controls="vuelos" role="tab" data-toggle="tab">Vuelos</a></li>
+                        <li role="presentation" class=""><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
+                    </ul>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
-                                <div class="contenedorfiltros">
-                                    <div>
-                                        @{
-                                            List<string> lista = new List<string>() { "Iquique", "Santiago", "Concepcion", "Valdivia" };
-                                        }
-                                        <div class="form-group col-md-2 grupo1">
-                                            @Html.Label("Desde", new { @class = "control-label etiqueta" })
-                                            @Html.DropDownList("Ciudades", new SelectList(lista), new { @class = "form-control text-center etiqueta" })
-                                        </div>
-                                        <div class="form-group col-md-2 grupo1">
-                                            
-                                            @Html.Label("Hasta", new { @class = "control-label etiqueta" })
-                                            @Html.DropDownList("Ciudades", new SelectList(lista), new { @class = "form-control text-center etiqueta" })
-                                        </div>
-                                        <div class="input-append form-group calendar col-md-2 grupo1">
-                                            <span class="add-on"><i class="fa fa-map-marker"></i></span>
-                                            @Html.Label("Ida")
-                                            <input type="text" class="form-control" placeholder="Fecha de Ida">
-                                        </div>
-                                        <div class="input-append form-group calendar col-md-2 grupo1">
-                                            <span class="add-on"><i class="fa fa-map-marker"></i></span>
-                                            @Html.Label("Retorno")
-                                            <input type="text" class="form-control" placeholder="Fecha de Vuelta">
-                                        </div>
-                                        <div class="form-group col-md-2 grupo1">
-                                            @Html.Label("Pasajeros", new { @class = "control-label etiqueta" })
-                                            <div class="form-group form-group-lg form-group-select-plus">
-                                                <div class="btn-group btn-group-select-num" data-toggle="buttons">
-                                                    <label class="btn btn-primary active">
-                                                        <input type="radio" name="options" />1
-                                                    </label>
-                                                    <label class="btn btn-primary">
-                                                        <input type="radio" name="options" />2
-                                                    </label>
-                                                    <label class="btn btn-primary">
-                                                        <input type="radio" name="options" />3
-                                                    </label>
-                                                    <label class="btn btn-primary">
-                                                        <input type="radio" name="options" />+
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-2 grupo1">
-                                            @{
-                                                List<string> categoria = new List<string>() { "Economy", "Premium Economy", "Premium Business" };
-                                            }
-                                            @Html.Label("Categoria", new { @class = "control-label etiqueta" })
-                                            @Html.DropDownList("Categorias", new SelectList(categoria), new { @class = "form-control etiqueta" })
-                                        </div>
-
-                                        
-                                    </div>
-                                    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @id = "regionSearch" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        <div class="form-group col-md-12 text-center">
-                                            <button id="btnBuscar" type="submit" class="btn btn-primary fa fa-search" @*data-toggle="collapse" data-target="#tablas" aria-expanded="false" aria-controls="tablas"*@>BUSCAR</button>
-                                        </div>
-
-                                        <div id="tablas" class="">
-                                            <div class="table-responsive">
-                                                <table id="table1" class="table table-hover">
-                                                    <thead>
-                                                        <tr class="active">
-                                                            <th>Origen</th>
-                                                            <th>Salida</th>
-                                                            <th>Aeropuerto</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @if (Model == null || Model.Count() == 0)
-                                                        {
-                                                            <tr><td>No se han encontrado vuelos disponibles.</td></tr>
-                                                        }
-                                                        else
-                                                        {
-                                                            foreach (var item in Model)
-                                                            {
-                                                                <tr>
-                                                                    <th>
-                                                                        @Html.DisplayFor(m => item.Origen)
-                                                                    </th>
-                                                                    <th>
-                                                                        @Html.DisplayFor(m => item.FechaSalida)
-                                                                    </th>
-                                                                    <th>
-                                                                        @Html.DisplayFor(m => item.AeropuertoOrigen)
-                                                                    </th>
-                                                                </tr>
-                                                            }
-                                                        }
-
-                                                    </tbody>
-                                                </table>
-                                                @*<table id="table2" class="table table-hover">
-                                                    <thead>
-                                                        <tr class="active">
-                                                            <th>Destino</th>
-                                                            <th>Llegada</th>
-                                                            <th>Aeropuerto</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @if (Model == null || Model.Count() == 0)
-                                                        {
-                                                            <tr><td>No se han encontrado vuelos disponibles.</td></tr>
-                                                        }
-                                                        else
-                                                        {
-                                                            foreach (var item in Model)
-                                                            {
-                                                                <tr>
-                                                                    <th>
-                                                                        @Html.DisplayFor(m => item.Destino)
-                                                                    </th>
-                                                                    <th>
-                                                                        @Html.DisplayFor(m => item.FechaLlegada)
-                                                                    </th>
-                                                                    <th>
-                                                                        @Html.DisplayFor(m => item.AeropuertoDestino)
-                                                                    </th>
-                                                                </tr>
-                                                            }
-                                                        }
-
-                                                    </tbody>
-                                                </table>*@
-
-                                            </div>
-                                        </div>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
+                            <div class="contenedores">
+                                <div class="filtros">
+                                    @{
+                                        List<string> lista = new List<string>() { "Iquique", "Santiago", "Concepcion", "Valdivia" };
                                     }
+                                    <div class="form-group col-md-2 grupo1">
+                                        @Html.Label("Desde", new { @class = "control-label etiqueta" })
+                                        @Html.DropDownList("Ciudades", new SelectList(lista), new { @class = "form-control text-center etiqueta" })
+                                    </div>
+                                    <div class="form-group col-md-2 grupo1">
 
-
+                                        @Html.Label("Hasta", new { @class = "control-label etiqueta" })
+                                        @Html.DropDownList("Ciudades", new SelectList(lista), new { @class = "form-control text-center etiqueta" })
+                                    </div>
+                                    <div class="input-append form-group calendar col-md-2 grupo1">
+                                        <span class="add-on"><i class="fa fa-map-marker"></i></span>
+                                        @Html.Label("Ida")
+                                        <input type="text" class="form-control" placeholder="Fecha de Ida">
+                                    </div>
+                                    <div class="input-append form-group calendar col-md-2 grupo1">
+                                        <span class="add-on"><i class="fa fa-map-marker"></i></span>
+                                        @Html.Label("Retorno")
+                                        <input type="text" class="form-control" placeholder="Fecha de Vuelta">
+                                    </div>
+                                    <div class="form-group col-md-2 grupo1">
+                                        @Html.Label("Pasajeros", new { @class = "control-label etiqueta" })
+                                        <div class="form-group form-group-lg form-group-select-plus">
+                                            <div class="btn-group btn-group-select-num" data-toggle="buttons">
+                                                <label class="btn btn-primary active">
+                                                    <input type="radio" name="options" />1
+                                                </label>
+                                                <label class="btn btn-primary">
+                                                    <input type="radio" name="options" />2
+                                                </label>
+                                                <label class="btn btn-primary">
+                                                    <input type="radio" name="options" />3
+                                                </label>
+                                                <label class="btn btn-primary">
+                                                    <input type="radio" name="options" />+
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-2 grupo1">
+                                        @{
+                                            List<string> categoria = new List<string>() { "Economy", "Premium Economy", "Premium Business" };
+                                        }
+                                        @Html.Label("Categoria", new { @class = "control-label etiqueta" })
+                                        @Html.DropDownList("Categorias", new SelectList(categoria), new { @class = "form-control etiqueta" })
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div role="tabpanel" class="tab-pane" id="hotel">
-                                <h4>
-                                    LIPSUM & EQUIPMENTS
-                                    Proin feugiat aliquam tortor, id hendrerit urna semper pulvinar. Nullam iaculis aliquam risus, nec tempus quam condimentum ut. Lorem Ipsum nisl, imperdiet non dictum quis, sodales quis risus. Donec condimentum gravida rhoncus. Proin sollicitudin mi eget felis congue sed adipiscing tellus vulputate. Cras suscipit aliquam sapien, non pretium turpis ullamcorper vitae. Aenean vitae libero velit, nec malesuada diam.
-                                </h4>
+                                <div id="busqueda">
+                                    @Html.Partial("_Search")
+                                </div>
 
                             </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" id="hotel">
+                            <h4>
+                                LIPSUM & EQUIPMENTS
+                                Proin feugiat aliquam tortor, id hendrerit urna semper pulvinar. Nullam iaculis aliquam risus, nec tempus quam condimentum ut. Lorem Ipsum nisl, imperdiet non dictum quis, sodales quis risus. Donec condimentum gravida rhoncus. Proin sollicitudin mi eget felis congue sed adipiscing tellus vulputate. Cras suscipit aliquam sapien, non pretium turpis ullamcorper vitae. Aenean vitae libero velit, nec malesuada diam.
+                            </h4>
 
                         </div>
 
                     </div>
-                @*}*@
+
+                </div>
             </div>
+
+
 
             <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel3">
                 <div>
