@@ -91,65 +91,82 @@
                                     </div>
                                     @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @id = "regionSearch" }))
                                     {
-                                    @Html.AntiForgeryToken()
-                                    <div class="form-group col-md-12 text-center">
-                                        <button id="btnBuscar" type="submit" class="btn btn-primary fa fa-search" @*data-toggle="collapse" data-target="#tablas" aria-expanded="false" aria-controls="tablas"*@>BUSCAR</button>
-                                    </div>
-
-                                    <div id="tablas" class="">
-                                        <div class="table-responsive">
-                                            <table id="table1" class="table table-hover">
-                                                <thead>
-                                                    <tr class="active">
-                                                        <th>Origen</th>
-                                                        <th>Salida</th>
-                                                        <th>Aeropuerto</th>
-                                                        <th>Cabina</th>
-                                                        <th>Tarifa</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @if (Model == null || Model.Count() == 0)
-                                                    {
-                                                        <tr><td>No se han encontrado vuelos disponibles.</td></tr>
-                                                    }
-                                                    else
-                                                    {
-                                                        foreach (var item in Model)
-                                                        {
-                                                            <tr>
-                                                                @*<th>
-                                                                    @Html.DisplayFor(m => item.Destino)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.NumeroVuelo)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.FechaLlegada)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.Clase)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.Valor)
-                                                                </th>*@
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.Origen)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.FechaSalida)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayFor(m => item.Aeropuerto)
-                                                                </th>
-                                                            </tr>
-                                                        }
-                                                    }
-
-                                                </tbody>
-                                            </table>
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group col-md-12 text-center">
+                                            <button id="btnBuscar" type="submit" class="btn btn-primary fa fa-search" @*data-toggle="collapse" data-target="#tablas" aria-expanded="false" aria-controls="tablas"*@>BUSCAR</button>
                                         </div>
-                                    </div>
+
+                                        <div id="tablas" class="">
+                                            <div class="table-responsive">
+                                                <table id="table1" class="table table-hover">
+                                                    <thead>
+                                                        <tr class="active">
+                                                            <th>Origen</th>
+                                                            <th>Salida</th>
+                                                            <th>Aeropuerto</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if (Model == null || Model.Count() == 0)
+                                                        {
+                                                            <tr><td>No se han encontrado vuelos disponibles.</td></tr>
+                                                        }
+                                                        else
+                                                        {
+                                                            foreach (var item in Model)
+                                                            {
+                                                                <tr>
+                                                                    <th>
+                                                                        @Html.DisplayFor(m => item.Origen)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayFor(m => item.FechaSalida)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayFor(m => item.AeropuertoOrigen)
+                                                                    </th>
+                                                                </tr>
+                                                            }
+                                                        }
+
+                                                    </tbody>
+                                                </table>
+                                                @*<table id="table2" class="table table-hover">
+                                                    <thead>
+                                                        <tr class="active">
+                                                            <th>Destino</th>
+                                                            <th>Llegada</th>
+                                                            <th>Aeropuerto</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if (Model == null || Model.Count() == 0)
+                                                        {
+                                                            <tr><td>No se han encontrado vuelos disponibles.</td></tr>
+                                                        }
+                                                        else
+                                                        {
+                                                            foreach (var item in Model)
+                                                            {
+                                                                <tr>
+                                                                    <th>
+                                                                        @Html.DisplayFor(m => item.Destino)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayFor(m => item.FechaLlegada)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayFor(m => item.AeropuertoDestino)
+                                                                    </th>
+                                                                </tr>
+                                                            }
+                                                        }
+
+                                                    </tbody>
+                                                </table>*@
+
+                                            </div>
+                                        </div>
                                     }
 
 

@@ -13,9 +13,12 @@ namespace Aerolinea.Models
         public string NumeroVuelo { get; set; }
         public DateTime FechaSalida { get; set; }
         public DateTime FechaLlegada { get; set; }
+        public DateTime HoraSalida { get; set; }
+        public DateTime HoraLlegada { get; set; }
         public string Destino { get; set; }
         public string Origen { get; set; }
-        public string Aeropuerto { get; set; }
+        public string AeropuertoOrigen { get; set; }
+        public string AeropuertoDestino { get; set; }
 
     }
 }
