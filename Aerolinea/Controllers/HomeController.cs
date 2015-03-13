@@ -12,10 +12,10 @@ namespace Aerolinea.Controllers
     {
         private VueloMgr mgr = null;
         internal IRepository _repo = null;
-        IEnumerable<VueloView> origen = null;
+        IEnumerable<VueloView> vuelos = null;
 
         public HomeController()
-            : this(new RepositoryEF())
+            : this(new Repository())
         {
         }
 
@@ -28,8 +28,6 @@ namespace Aerolinea.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //var obj = mgr.BusquedaVueloOrigen();
-            //return View(obj);
             return View();
         }
 
@@ -48,8 +46,8 @@ namespace Aerolinea.Controllers
         [HttpPost]
         public ActionResult Search()
         {
-            origen = mgr.BusquedaVueloOrigen();
-            return View("Index", origen);
+            vuelos = mgr.BusquedaVuelos();
+            return View("Index", vuelos);
         }
 
 

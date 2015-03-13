@@ -11,7 +11,7 @@ namespace Aerolinea.Models.Domain.Business
 
         public VueloMgr()
         {
-            _repository = new RepositoryEF();
+            _repository = new Repository();
         }
 
         public VueloMgr(IRepository repository)
@@ -19,7 +19,7 @@ namespace Aerolinea.Models.Domain.Business
             _repository = repository;
         }
 
-        public IEnumerable<VueloView> BusquedaVueloOrigen()
+        public IEnumerable<VueloView> BusquedaVuelos()
         {
             var list = _repository.BusquedaVuelos();
             return list;

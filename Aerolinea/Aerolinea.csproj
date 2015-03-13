@@ -124,7 +124,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Domain\Business\IRepository.cs" />
-    <Compile Include="Models\Domain\Business\RepositoryEF.cs" />
+    <Compile Include="Models\Domain\Business\Repository.cs" />
     <Compile Include="Models\Domain\Business\VueloMgr.cs" />
     <Compile Include="Models\Domain\Data\Aeropuerto.cs">
       <DependentUpon>ModelAerolinea.tt</DependentUpon>

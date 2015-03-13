@@ -14,6 +14,7 @@
                     <tr class="active">
                         <th>Origen</th>
                         <th>Salida</th>
+                        <th>Hora</th>
                         <th>Aeropuerto</th>
                     </tr>
                 </thead>
@@ -24,8 +25,10 @@
                     }
                     else
                     {
-                        foreach (var item in Model)
+                        foreach (var item in Model.First().ListaOrigen)
                         {
+
+                            
                             <tr>
                                 <th>
                                     @Html.DisplayFor(m => item.Origen)
@@ -34,7 +37,10 @@
                                     @Html.DisplayFor(m => item.FechaSalida)
                                 </th>
                                 <th>
-                                    @Html.DisplayFor(m => item.AeropuertoOrigen)
+                                    @Html.DisplayFor(m=> item.HoraSalida)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(m => item.Aeropuerto)
                                 </th>
                             </tr>
                         }
@@ -42,11 +48,12 @@
 
                 </tbody>
             </table>
-            @*<table id="table2" class="table table-hover">
+            <table id="table2" class="table table-hover">
                     <thead>
                         <tr class="active">
                             <th>Destino</th>
                             <th>Llegada</th>
+                            <th>Hora</th>
                             <th>Aeropuerto</th>
                         </tr>
                     </thead>
@@ -57,24 +64,27 @@
                         }
                         else
                         {
-                            foreach (var item in Model)
+                            foreach (var item in Model.First().ListaDestino)
                             {
                                 <tr>
                                     <th>
                                         @Html.DisplayFor(m => item.Destino)
                                     </th>
                                     <th>
-                                        @Html.DisplayFor(m => item.FechaLlegada)
+                                        @Html.DisplayFor(m => item.FechaDestino)
                                     </th>
                                     <th>
-                                        @Html.DisplayFor(m => item.AeropuertoDestino)
+                                        @Html.DisplayFor(m => item.HoraDestino)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(m => item.Aeropuerto)
                                     </th>
                                 </tr>
                             }
                         }
 
                     </tbody>
-                </table>*@
+                </table>
 
         </div>
     </div>
