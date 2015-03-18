@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Aerolinea.Models.Domain.Data;
+using System.Web.Mvc;
 
 namespace Aerolinea.Models
 {
     public class VueloView
     {
-        public List<OrigenView> ListaOrigen { get; set; }
-        public List<DestinoView> ListaDestino { get; set; }
- 
+        public int IdVuelo { get; set; }
+        public List<OrigenView> ListaVuelosOrigen { get; set; }
+        public List<DestinoView> ListaVuelosDestino { get; set; }
+        public IEnumerable<SelectListItem> ListaItemsOrigen { get; set; }
+        public IEnumerable<SelectListItem> ListaItemsDestino { get; set; }
 
     }
 }

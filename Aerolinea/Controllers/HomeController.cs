@@ -50,6 +50,12 @@ namespace Aerolinea.Controllers
             return View("Index", vuelos);
         }
 
+        [HttpPost]
+        public ActionResult Filters()
+        {
+            return View();
+        }
+
 
     }
 }

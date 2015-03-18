@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Aerolinea.Models.Domain.Data;
+using System.Web.Mvc;
 
 namespace Aerolinea.Models.Domain.Business
 {
@@ -16,11 +17,12 @@ namespace Aerolinea.Models.Domain.Business
         {
 
             lista = new List<VueloView>();
-
-            lista.Add(new VueloView() 
+            lista.Add(new VueloView()
             {
-                ListaOrigen = BusquedaVuelosOrigen().ToList(),
-                ListaDestino = BusquedaVuelosDestino().ToList()
+                ListaVuelosOrigen = BusquedaVuelosOrigen().ToList(),
+                ListaVuelosDestino = BusquedaVuelosDestino().ToList(),
+                ListaItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
+                ListaItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
             });
 
             return lista;

@@ -245,6 +245,7 @@
     <Content Include="Views\Shared\Flights.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_Search.cshtml" />
+    <Content Include="Views\Home\_Filters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
