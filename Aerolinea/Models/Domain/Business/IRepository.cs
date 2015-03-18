@@ -10,6 +10,7 @@ namespace Aerolinea.Models.Domain.Business
         IEnumerable<VueloView> BusquedaVuelos();
         IEnumerable<OrigenView> BusquedaVuelosOrigen();
         IEnumerable<DestinoView> BusquedaVuelosDestino();
+        IEnumerable<VueloView> FiltrosBusqueda();
 
     }
 }

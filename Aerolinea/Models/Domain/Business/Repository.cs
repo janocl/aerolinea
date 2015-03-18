@@ -30,6 +30,19 @@ namespace Aerolinea.Models.Domain.Business
 
         }
 
+        public IEnumerable<VueloView> FiltrosBusqueda()
+        {
+            lista = new List<VueloView>();
+            lista.Add(new VueloView()
+            {
+                ListaItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
+                ListaItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
+            });
+
+            return lista;
+        
+        }
+
         public IEnumerable<OrigenView> BusquedaVuelosOrigen()
         {
             using (var db = new AerolineaEntities())

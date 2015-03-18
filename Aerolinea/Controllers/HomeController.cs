@@ -28,7 +28,9 @@ namespace Aerolinea.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+
+            vuelos = mgr.FiltrosBusqueda();
+            return View(vuelos);
         }
 
         public ActionResult About()
@@ -53,7 +55,8 @@ namespace Aerolinea.Controllers
         [HttpPost]
         public ActionResult Filters()
         {
-            return View();
+            vuelos = mgr.BusquedaVuelos();
+            return View("Index", vuelos);
         }
 
 
