@@ -7,7 +7,7 @@ namespace Aerolinea.Models
 {
     public class DestinoView
     {
-        public int Id { get; set; }
+        public int IdDestino { get; set; }
         public string Destino { get; set; }
         public DateTime FechaDestino { get; set; }
         public DateTime HoraDestino { get; set; }

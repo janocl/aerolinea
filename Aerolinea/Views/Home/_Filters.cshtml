@@ -1,19 +1,18 @@
 ﻿@model IEnumerable<Aerolinea.Models.VueloView>
 
-
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @id = "regionFilters" }))
+@using (Html.BeginForm("Filters", "Home", FormMethod.Post, new { @id = "regionFilters" }))
 {
+    @Html.AntiForgeryToken()
     if (Model != null)
     {
+        @Html.HiddenFor(x => x.First().IdVuelo, new { @Value = Model.First().IdVuelo })
         <div class="form-group col-md-2 grupo1">
-            @*@Html.HiddenFor(x => x.First().ListaVuelosOrigen.First().Id)*@
             @Html.LabelFor(x => x.First().ListaVuelosOrigen.First().Origen, new { @class = "control-label etiqueta" })
-            @Html.DropDownListFor(x => x.First().ListaVuelosOrigen.First().Id, Model.First().ListaItemsOrigen, "-- Seleccione --", new { @class = "form-control text-center etiqueta" })
+            @Html.DropDownListFor(x => x.First().ListaVuelosOrigen.First().IdOrigen, Model.First().ListaItemsOrigen, new { @class = "form-control text-center etiqueta", @id = "DropDownOrigen" })
         </div>
         <div class="form-group col-md-2 grupo1">
-            @*@Html.HiddenFor(x => x.First().ListaVuelosDestino.First().Id)*@
             @Html.LabelFor(x => x.First().ListaVuelosDestino.First().Destino, new { @class = "control-label etiqueta" })
-            @Html.DropDownListFor(x => x.First().ListaVuelosDestino.First().Id, Model.First().ListaItemsDestino,"-- Seleccione --", new { @class = "form-control text-center etiqueta" })
+            @Html.DropDownListFor(x => x.First().ListaVuelosDestino.First().IdDestino, Model.First().ListaItemsDestino, new { @class = "form-control text-center etiqueta", @id = "DropDownDestino" })
         </div>
         <div class="input-append form-group calendar col-md-2 grupo1">
             <span class="add-on"><i class="fa fa-map-marker"></i></span>

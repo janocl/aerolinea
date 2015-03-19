@@ -19,6 +19,7 @@ namespace Aerolinea.Models.Domain.Business
             lista = new List<VueloView>();
             lista.Add(new VueloView()
             {
+                IdVuelo = lista.Count() + 1,
                 ListaVuelosOrigen = BusquedaVuelosOrigen().ToList(),
                 ListaVuelosDestino = BusquedaVuelosDestino().ToList(),
                 ListaItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
@@ -35,13 +36,14 @@ namespace Aerolinea.Models.Domain.Business
             lista = new List<VueloView>();
             lista.Add(new VueloView()
             {
+                IdVuelo = lista.Count() + 1,
                 ListaItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
                 ListaItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
             });
 
             return lista;
         
-        }
+        } 
 
         public IEnumerable<OrigenView> BusquedaVuelosOrigen()
         {
@@ -53,6 +55,7 @@ namespace Aerolinea.Models.Domain.Business
                            join a in db.Aeropuerto on c.IdAeropuerto equals a.Id
                            select new OrigenView()
                            {
+                               IdOrigen = o.Id,
                                FechaSalida = o.FechaSalida,
                                HoraSalida = o.HoraSalida,
                                Origen = c.Nombre,
@@ -75,6 +78,7 @@ namespace Aerolinea.Models.Domain.Business
                             join a in db.Aeropuerto on c.IdAeropuerto equals a.Id
                             select new DestinoView()
                             {
+                                IdDestino = d.Id,
                                 FechaDestino = d.FechaLlegada,
                                 HoraDestino = d.HoraLlegada,
                                 Destino = c.Nombre,

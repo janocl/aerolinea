@@ -53,10 +53,11 @@ namespace Aerolinea.Controllers
         }
 
         [HttpPost]
-        public ActionResult Filters()
+        public ActionResult Filters(int IdVuelo, string Origen)
         {
-            vuelos = mgr.BusquedaVuelos();
-            return View("Index", vuelos);
+            var id = IdVuelo;
+            var id2 = Origen;
+            return View();
         }
 
 
