@@ -25,14 +25,6 @@ namespace Aerolinea.Controllers
             mgr = new VueloMgr(_repo);
         }
 
-        // GET: Home
-        public ActionResult Index()
-        {
-
-            vuelos = mgr.FiltrosBusqueda();
-            return View(vuelos);
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -45,18 +37,20 @@ namespace Aerolinea.Controllers
             return View();
         }
 
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            vuelos = mgr.FiltrosBusqueda();
+            return View(vuelos);
+        }
+
+
         [HttpPost]
         public ActionResult Search(string Origen, string Destino)
         {
             vuelos = mgr.BusquedaVuelos(Origen, Destino);
             return View("Index", vuelos);
-        }
-
-        [HttpPost]
-        public ActionResult Filters(string Origen, string Destino)
-        {
-            var id2 = Origen;
-            return View();
         }
 
 

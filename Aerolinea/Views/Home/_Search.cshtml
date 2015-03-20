@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (Model.First().ListaVuelosOrigen == null)
+                    @if (Model.First().ListaVuelosOrigen == null || Model.First().ListaVuelosOrigen.Count() == 0)
                     {
                         <tr><td>No se han encontrado vuelos disponibles.</td></tr>
                     }
@@ -58,7 +58,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Model.First().ListaVuelosDestino == null)
+                        @if (Model.First().ListaVuelosDestino == null || Model.First().ListaVuelosDestino.Count() == 0)
                         {
                             <tr><td>No se han encontrado vuelos disponibles.</td></tr>
                         }
