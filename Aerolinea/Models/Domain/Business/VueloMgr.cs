@@ -19,9 +19,9 @@ namespace Aerolinea.Models.Domain.Business
             _repository = repository;
         }
 
-        public IEnumerable<VueloView> BusquedaVuelos()
+        public IEnumerable<VueloView> BusquedaVuelos(string Origen, string Destino)
         {
-            var list = _repository.BusquedaVuelos();
+            var list = _repository.BusquedaVuelos(Origen, Destino);
             return list;
         
         }

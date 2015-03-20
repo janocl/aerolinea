@@ -46,16 +46,15 @@ namespace Aerolinea.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search()
+        public ActionResult Search(string Origen, string Destino)
         {
-            vuelos = mgr.BusquedaVuelos();
+            vuelos = mgr.BusquedaVuelos(Origen, Destino);
             return View("Index", vuelos);
         }
 
         [HttpPost]
-        public ActionResult Filters(int IdVuelo, string Origen)
+        public ActionResult Filters(string Origen, string Destino)
         {
-            var id = IdVuelo;
             var id2 = Origen;
             return View();
         }

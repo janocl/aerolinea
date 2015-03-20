@@ -13,17 +13,17 @@ namespace Aerolinea.Models.Domain.Business
         private List<DestinoView> listDes = null;
         private List<OrigenView> listOrg = null;
 
-        public IEnumerable<VueloView> BusquedaVuelos() 
+        public IEnumerable<VueloView> BusquedaVuelos(string Origen, string Destino) 
         {
 
             lista = new List<VueloView>();
             lista.Add(new VueloView()
             {
                 IdVuelo = lista.Count() + 1,
-                ListaVuelosOrigen = BusquedaVuelosOrigen().ToList(),
-                ListaVuelosDestino = BusquedaVuelosDestino().ToList(),
-                ListaItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
-                ListaItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
+                ListaVuelosOrigen = BusquedaVuelosOrigen().ToList().Where(x=>x.Origen == Origen).ToList(),
+                ListaVuelosDestino = BusquedaVuelosDestino().ToList().Where(x => x.Destino == Destino).ToList(),
+                ItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
+                ItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
             });
 
             return lista;
@@ -37,8 +37,8 @@ namespace Aerolinea.Models.Domain.Business
             lista.Add(new VueloView()
             {
                 IdVuelo = lista.Count() + 1,
-                ListaItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
-                ListaItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
+                ItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
+                ItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
             });
 
             return lista;

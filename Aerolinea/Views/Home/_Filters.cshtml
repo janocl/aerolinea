@@ -1,18 +1,17 @@
 ﻿@model IEnumerable<Aerolinea.Models.VueloView>
 
-@using (Html.BeginForm("Filters", "Home", FormMethod.Post, new { @id = "regionFilters" }))
+@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @id = "regionFilters" }))
 {
     @Html.AntiForgeryToken()
     if (Model != null)
     {
-        @Html.HiddenFor(x => x.First().IdVuelo, new { @Value = Model.First().IdVuelo })
         <div class="form-group col-md-2 grupo1">
             @Html.LabelFor(x => x.First().ListaVuelosOrigen.First().Origen, new { @class = "control-label etiqueta" })
-            @Html.DropDownListFor(x => x.First().ListaVuelosOrigen.First().IdOrigen, Model.First().ListaItemsOrigen, new { @class = "form-control text-center etiqueta", @id = "DropDownOrigen" })
+            @Html.DropDownListFor(x => x.First().ListaVuelosOrigen.First().Origen, Model.First().ItemsOrigen, "Seleccione", new { @class = "form-control text-center etiqueta", @id = "DropDownOrigen" })
         </div>
         <div class="form-group col-md-2 grupo1">
             @Html.LabelFor(x => x.First().ListaVuelosDestino.First().Destino, new { @class = "control-label etiqueta" })
-            @Html.DropDownListFor(x => x.First().ListaVuelosDestino.First().IdDestino, Model.First().ListaItemsDestino, new { @class = "form-control text-center etiqueta", @id = "DropDownDestino" })
+            @Html.DropDownListFor(x => x.First().ListaVuelosDestino.First().Destino, Model.First().ItemsDestino, "Seleccione", new { @class = "form-control text-center etiqueta", @id = "DropDownDestino" })
         </div>
         <div class="input-append form-group calendar col-md-2 grupo1">
             <span class="add-on"><i class="fa fa-map-marker"></i></span>
@@ -48,7 +47,7 @@
                 List<string> categoria = new List<string>() { "Economy", "Premium Economy", "Premium Business" };
             }
             @Html.Label("Categoria", new { @class = "control-label etiqueta" })
-            @Html.DropDownList("Categorias", new SelectList(categoria), new { @class = "form-control etiqueta" })
+            @Html.DropDownList("Categoria", new SelectList(categoria), new { @class = "form-control etiqueta" })
         </div>
     }
 

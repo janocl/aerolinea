@@ -12,8 +12,8 @@ namespace Aerolinea.Models
         public int IdVuelo { get; set; }
         public List<OrigenView> ListaVuelosOrigen { get; set; }
         public List<DestinoView> ListaVuelosDestino { get; set; }
-        public IEnumerable<SelectListItem> ListaItemsOrigen { get; set; }
-        public IEnumerable<SelectListItem> ListaItemsDestino { get; set; }
+        public IEnumerable<SelectListItem> ItemsOrigen { get; set; }
+        public IEnumerable<SelectListItem> ItemsDestino { get; set; }
 
     }
 }
