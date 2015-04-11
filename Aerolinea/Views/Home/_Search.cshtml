@@ -3,9 +3,9 @@
 @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @id = "regionSearch" }))
 {
     @Html.AntiForgeryToken()
-    @*<div class="form-group col-md-12 text-center">
+    <div class="form-group col-md-12 text-center">
         <button id="btnBuscar" type="submit" value="submit" class="btn btn-default fa fa-search">BUSCAR</button>
-    </div>*@
+    </div>
 
     <div id="tablas" class="">
         <div class="table-responsive">
@@ -21,7 +21,7 @@
                 <tbody>
                     @if (Model.First().ListaVuelosOrigen == null || Model.First().ListaVuelosOrigen.Count() == 0)
                     {
-                        <tr><td>Seleccione un vuelo de origen.</td></tr>
+                        <tr><td>No se han encontrado vuelos disponibles.</td></tr>
                     }
                     else
                     {
@@ -60,7 +60,7 @@
                     <tbody>
                         @if (Model.First().ListaVuelosDestino == null || Model.First().ListaVuelosDestino.Count() == 0)
                         {
-                            <tr><td>Seleccione un vuelo de destino.</td></tr>
+                            <tr><td>No se han encontrado vuelos disponibles.</td></tr>
                         }
                         else
                         {
