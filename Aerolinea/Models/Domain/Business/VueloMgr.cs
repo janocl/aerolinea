@@ -26,7 +26,7 @@ namespace Aerolinea.Models.Domain.Business
         
         }
 
-        public IEnumerable<VueloView> FiltrosBusqueda()
+        public IEnumerable<VueloView> CargaFiltros()
         {
             var list = _repository.FiltrosBusqueda();
             return list;

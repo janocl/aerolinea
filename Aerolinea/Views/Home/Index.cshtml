@@ -115,8 +115,16 @@
         });
 
         $('.calendar input').datepicker({
-            format: "dd/mm/yyyy"
+            format: "dd/mm/yyyy",
         });
+
+        //$('#calendar1').datepicker()
+        //    .on('changeDate', function (e) {
+        //        $("#regionFilters").submit();
+        //    });
+
+
+
 
 
         $("#DropDownOrigen").on("submit", function (e) {
@@ -159,9 +167,7 @@
 
 
     $(function () {
-        //$("#btnBuscar").change(function () {
-        //    $("#regionSearch").submit();
-        //});
+
 
         $("#DropDownOrigen").change(function () {
             $("#regionFilters").submit();
@@ -171,8 +177,13 @@
             $("#regionFilters").submit();
         });
 
+        //$("#calendar1").change(function () {
+        //    $("#regionFilters").submit();
+        //});
 
-
+        //$("#calendar2").change(function () {
+        //    $("#regionFilters").submit();
+        //});
 
     });
 

@@ -37,6 +37,8 @@ namespace Aerolinea.Models.Domain.Business
             lista.Add(new VueloView()
             {
                 IdVuelo = lista.Count() + 1,
+                FechaSalida = BusquedaVuelosOrigen().Select(x => x.FechaSalida).First(),
+                FechaLlegada = BusquedaVuelosDestino().Select(x => x.FechaDestino).First(),
                 ItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
                 ItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
             });

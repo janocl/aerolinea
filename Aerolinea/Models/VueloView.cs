@@ -10,6 +10,8 @@ namespace Aerolinea.Models
     public class VueloView
     {
         public int IdVuelo { get; set; }
+        public DateTime FechaSalida { get; set; }
+        public DateTime FechaLlegada { get; set; }
         public List<OrigenView> ListaVuelosOrigen { get; set; }
         public List<DestinoView> ListaVuelosDestino { get; set; }
         public IEnumerable<SelectListItem> ItemsOrigen { get; set; }

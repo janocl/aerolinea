@@ -41,7 +41,7 @@ namespace Aerolinea.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            vuelos = mgr.FiltrosBusqueda();
+            vuelos = mgr.CargaFiltros();
             return View(vuelos);
         }
 
