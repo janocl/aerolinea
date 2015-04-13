@@ -22,8 +22,9 @@ namespace Aerolinea.Models.Domain.Business
                 IdVuelo = lista.Count() + 1,
                 ListaVuelosOrigen = BusquedaVuelosOrigen().ToList().Where(x=>x.Origen == Origen).ToList(),
                 ListaVuelosDestino = BusquedaVuelosDestino().ToList().Where(x => x.Destino == Destino).ToList(),
-                ItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
-                ItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
+                // Elimina la duplicidad agrupandolos por una propiedad especifica
+                ItemsOrigen = BusquedaVuelosOrigen().GroupBy(x => x.Origen).Select(y => new SelectListItem { Text = y.First().Origen }),
+                ItemsDestino = BusquedaVuelosDestino().GroupBy(x => x.Destino).Select(y => new SelectListItem { Text = y.First().Destino })
             });
 
             return lista;
@@ -39,8 +40,9 @@ namespace Aerolinea.Models.Domain.Business
                 IdVuelo = lista.Count() + 1,
                 FechaSalida = BusquedaVuelosOrigen().Select(x => x.FechaSalida).First(),
                 FechaLlegada = BusquedaVuelosDestino().Select(x => x.FechaDestino).First(),
-                ItemsOrigen = BusquedaVuelosOrigen().Select(x => new SelectListItem { Text = x.Origen }),
-                ItemsDestino = BusquedaVuelosDestino().Select(x => new SelectListItem { Text = x.Destino })
+                // Elimina la duplicidad agrupandolos por una propiedad especifica
+                ItemsOrigen = BusquedaVuelosOrigen().GroupBy(x => x.Origen).Select(y => new SelectListItem { Text = y.First().Origen }),
+                ItemsDestino = BusquedaVuelosDestino().GroupBy(x => x.Destino).Select(y => new SelectListItem { Text = y.First().Destino })
             });
 
             return lista;
