@@ -115,16 +115,41 @@
         });
 
         $('.calendar input').datepicker({
-            format: "dd/mm/yyyy",
+            format: "dd/mm/yyyy"
+        });
+    });
+
+
+    $(function () {
+        $("#btnBuscar").change(function () {
+            $("#regionSearch").submit();
         });
 
-        //$('#calendar1').datepicker()
-        //    .on('changeDate', function (e) {
-        //        $("#regionFilters").submit();
-        //    });
+
+        $("#btnBuscar").on("submit", function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (data) {
+                    $("#regionSearch").html(data);
+                }
+            })
+
+        });
 
 
 
+
+        $("#DropDownOrigen").change(function () {
+            $("#regionFilters").submit();
+        });
+
+        $("#DropDownDestino").change(function () {
+            $("#regionFilters").submit();
+        });
 
 
         $("#DropDownOrigen").on("submit", function (e) {
@@ -142,48 +167,6 @@
             })
 
         })
-
-        $("#DropDownDestino").on("submit", function (e) {
-
-            e.preventDefault();
-
-            $.ajax({
-                url: this.action,
-                type: this.method,
-                data: $(this).serialize(),
-                success: function (data) {
-                    $("#regionFilters").html(data);
-                }
-
-            })
-
-        })
-
-
-
-
-
-    });
-
-
-    $(function () {
-
-
-        $("#DropDownOrigen").change(function () {
-            $("#regionFilters").submit();
-        });
-
-        $("#DropDownDestino").change(function () {
-            $("#regionFilters").submit();
-        });
-
-        //$("#calendar1").change(function () {
-        //    $("#regionFilters").submit();
-        //});
-
-        //$("#calendar2").change(function () {
-        //    $("#regionFilters").submit();
-        //});
 
     });
 
