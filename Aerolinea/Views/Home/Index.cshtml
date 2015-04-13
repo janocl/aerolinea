@@ -117,28 +117,67 @@
         $('.calendar input').datepicker({
             format: "dd/mm/yyyy"
         });
+
+        //$('#calendar1').datepicker()
+        //   .on('changeDate', function (e) {
+        //       $("#regionFilters").submit();
+        //   });
+
+
+        //$("#DropDownOrigen").on("submit", function (e) {
+
+        //    e.preventDefault();
+
+        //    $.ajax({
+        //        url: this.action,
+        //        type: this.method,
+        //        data: $(this).serialize(),
+        //        success: function (data) {
+        //            $("#regionFilters").html(data);
+        //        }
+
+        //    })
+
+        //});
+
+        //$("#DropDownDestino").on("submit", function (e) {
+
+        //    e.preventDefault();
+
+        //    $.ajax({
+        //        url: this.action,
+        //        type: this.method,
+        //        data: $(this).serialize(),
+        //        success: function (data) {
+        //            $("#regionFilters").html(data);
+        //        }
+
+        //    })
+
+        //});
+
     });
 
 
     $(function () {
-        $("#btnBuscar").change(function () {
-            $("#regionSearch").submit();
-        });
+        //$("#btnBuscar").change(function () {
+        //    $("#regionSearch").submit();
+        //});
 
 
-        $("#btnBuscar").on("submit", function (e) {
-            e.preventDefault();
+        //$("#btnBuscar").on("submit", function (e) {
+        //    e.preventDefault();
 
-            $.ajax({
-                url: this.action,
-                type: this.method,
-                data: $(this).serialize(),
-                success: function (data) {
-                    $("#regionSearch").html(data);
-                }
-            })
+        //    $.ajax({
+        //        url: this.action,
+        //        type: this.method,
+        //        data: $(this).serialize(),
+        //        success: function (data) {
+        //            $("#regionSearch").html(data);
+        //        }
+        //    })
 
-        });
+        //});
 
 
 
@@ -152,21 +191,7 @@
         });
 
 
-        $("#DropDownOrigen").on("submit", function (e) {
 
-            e.preventDefault();
-
-            $.ajax({
-                url: this.action,
-                type: this.method,
-                data: $(this).serialize(),
-                success: function (data) {
-                    $("#regionFilters").html(data);
-                }
-
-            })
-
-        })
 
     });
 
