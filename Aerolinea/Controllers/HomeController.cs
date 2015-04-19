@@ -47,7 +47,7 @@ namespace Aerolinea.Controllers
 
 
         [HttpPost]
-        public ActionResult Search(string Origen, string Destino)
+        public ActionResult Search(string Origen, string Destino, DateTime FechaSalida, DateTime FechaLlegada)
         {
             vuelos = mgr.BusquedaVuelos(Origen, Destino);
             return View("Index", vuelos);
