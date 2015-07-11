@@ -25,16 +25,16 @@ namespace Aerolinea
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/owl").Include(
-                      "~/Scripts/owl.carousel.js"));
+            bundles.Add(new ScriptBundle("~/bundles/BxSlider").Include(
+                      "~/Scripts/BxSlider/jquery.bxslider.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/normalize.css",
                       "~/Content/Site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/owl").Include(
-                      "~/Content/owl.carousel.css"));
+            bundles.Add(new StyleBundle("~/Content/BxSlider").Include(
+                      "~/Content/jquery.bxslider.css"));
 
             var AwesomeCdn = "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
             

@@ -48,6 +48,13 @@ body {
 .panelsup {
     padding-top:2em;
 }
+.slider .bx-wrapper .bx-viewport {
+    position: initial !important;
+}
+.slider .bx-wrapper .bx-viewport .bxslider li img {
+    width: 100%;
+}
+
 /*Se debe cambiar la propiedad para que sea visible y funcione el responsive de la tabla con el collapse*/
 .table-responsive {
     overflow-x: visible !important;
