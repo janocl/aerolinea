@@ -53,6 +53,11 @@ namespace Aerolinea.Controllers
             return View("Index", vuelos);
         }
 
+        public JsonResult SearchFly(string Origin, string Destiny)
+        {
+            var fly = mgr.BusquedaVuelos(Origin, Destiny);
+            return Json(fly, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

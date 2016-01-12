@@ -43,13 +43,19 @@ body {
     color: white;
 }
 .paneles {
-    margin-top:2em;
+    margin-top:5%;
 }
 .panelsup {
     padding-top:2em;
 }
+
+.slider.col-md-12 {
+    padding: 0px 0px;
+}
+
 .slider .bx-wrapper .bx-viewport {
-    position: initial !important;
+    border:none;
+
 }
 .slider .bx-wrapper .bx-viewport .bxslider li img {
     width: 100%;

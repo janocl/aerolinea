@@ -5,6 +5,7 @@
     ViewBag.Title = "Home Page";
 }
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+<link href="~/Content/normalize.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.css">
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -14,17 +15,9 @@
 
 @Html.Partial("_SliderPartial")
 
-<div class="row">
+
     <div class="container">
-        <div class="col-md-12 container body-content">
-            @*<div class="panelsup" id="panel1">
-                    <figure>
-                        <img class="img-responsive img-circle" src="http://oi60.tinypic.com/2uiumc3.jpg" width="90" alt="Logo">
-                    </figure>
-                    <label>Bullet Airline</label>
-                </div>*@
-
-
+        <div class="col-md-12 body-content">
             <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel2">
                 <div role="tabpanel">
                     <!-- Nav tabs -->
@@ -38,7 +31,7 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
                             <div class="contenedores">
                                 <div id="busqueda">
-                                    @Html.Partial("_Filters")
+                                    @Html.Partial("_Filters2")
                                     @Html.Partial("_Search")
                                 </div>
                             </div>
@@ -91,7 +84,6 @@
         </div>
     </div>
 
-</div>
 
 
 
@@ -111,15 +103,37 @@
             format: "dd/mm/yyyy"
         });
 
+        //$("#DropDownOrigen").change(function () {
+        //    $("#regionFilters").submit();
+        //});
+
+        //$("#DropDownDestino").change(function () {
+        //    $("#regionFilters").submit();
+        //});
+
         $("#DropDownOrigen").change(function () {
-            $("#regionFilters").submit();
+            Flights();
         });
 
-        $("#DropDownDestino").change(function () {
-            $("#regionFilters").submit();
-        });
 
     });
+
+    function Flights(e) {
+
+            //e.preventDefault();
+            $.ajax({
+                url: 'Home/SearchFly',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $(data).each(function (index, item) {
+                        $('#table1 tbody tr td').append(item.Origen);
+                    });
+                }
+            });
+
+    }
+
 
 </script>
 
