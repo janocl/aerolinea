@@ -112,13 +112,15 @@
         //});
 
         $("#DropDownOrigen").change(function () {
+            //Falta pasar parametros al metodo Flights
             Flights();
         });
 
 
     });
 
-    function Flights(e) {
+    // Falta recibir parametros seleccionados del combobox para filtrar en el controlador.
+    function Flights() {
 
             //e.preventDefault();
             $.ajax({
@@ -127,7 +129,8 @@
                 dataType: 'json',
                 success: function(data) {
                     $(data).each(function (index, item) {
-                        $('#table1 tbody tr td').append(item.Origen);
+                        $('#tablas #table1 tbody tr').html('<td>' + item.Origen + '</td>');
+                        console.log(index);
                     });
                 }
             });
