@@ -112,28 +112,27 @@
         //});
 
         $("#DropDownOrigen").change(function () {
-            //Falta pasar parametros al metodo Flights
-            Flights();
+            Flights($(this).val());
         });
 
 
     });
 
-    // Falta recibir parametros seleccionados del combobox para filtrar en el controlador.
-    function Flights() {
 
-            //e.preventDefault();
-            $.ajax({
-                url: 'Home/SearchFly',
-                type: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    $(data).each(function (index, item) {
-                        $('#tablas #table1 tbody tr').html('<td>' + item.Origen + '</td>');
-                        console.log(index);
-                    });
-                }
-            });
+    function Flights(origen) {
+        $.ajax({
+            // Falta pasar parametro al controlador
+            url: 'Home/SearchFly',
+            data: "{ Origen: 'origen'}",
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    $('#tablas #table1 tbody tr').html('<td>' + item.Origen + '</td>');
+                    console.log(item);
+                });
+            }
+        });
 
     }
 
