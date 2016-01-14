@@ -112,24 +112,24 @@
         //});
 
         $("#DropDownOrigen").change(function () {
-            Flights($(this).val());
+            Flights($(this).val(), $(this).val());
         });
 
 
     });
 
 
-    function Flights(origen) {
+    function Flights(origen, destino) {
         $.ajax({
             // Falta pasar parametro al controlador
-            url: 'Home/SearchFly',
-            data: "{ Origen: 'origen'}",
+            url: '/Home/SearchFly',
+            data: { Origin: origen, Destiny: destino },
             type: 'GET',
             dataType: 'json',
             success: function (data) {
                 $(data).each(function (index, item) {
-                    $('#tablas #table1 tbody tr').html('<td>' + item.Origen + '</td>');
-                    console.log(item);
+                    $('#tablas #table1 tbody tr').html('<td>' + item.origen + '</td>');
+                    console.log(item.origen);
                 });
             }
         });
