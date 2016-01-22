@@ -129,9 +129,11 @@
             success: function (data) {
                 $(data).each(function (index, item) {
                     $(item.ListaVuelosOrigen).each(function (i, lista) {
-                        console.log(lista.Origen);
-                        $('#tablas #table1 tbody').append('<tr>'+'<td>'+ lista.Origen +'</td>'+'<td>'+ lista.Aeropuerto + '</td>'+'</tr>');
-                    })
+                        console.log(lista);
+                        $('#tablas #table1 tbody').append('<tr>' +
+                            '<td>' + lista.Origen + '</td>' + '<td>' + lista.FechaSalida + '</td>' +
+                            '<td>' + lista.HoraSalida + '</td>' + '<td>' + lista.Aeropuerto + '</td>' + '</tr>');
+                    });
                 });
             }
         });
