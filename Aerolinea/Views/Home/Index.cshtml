@@ -103,17 +103,14 @@
             format: "dd/mm/yyyy"
         });
 
-        //$("#DropDownOrigen").change(function () {
-        //    $("#regionFilters").submit();
-        //});
-
-        //$("#DropDownDestino").change(function () {
-        //    $("#regionFilters").submit();
-        //});
-
         $("#DropDownOrigen").change(function () {
-            $('#tablas #table1 tbody').empty();
+            $('#tablas #table1 tbody').html('');
             VuelosOrigen($(this).val());
+        });
+
+        $("#DropDownDestino").change(function () {
+            $('#tablas #table2 tbody').html('');
+            VuelosDestino($(this).val());
         });
 
 
@@ -129,7 +126,6 @@
             success: function (data) {
                 $(data).each(function (index, item) {
                     $(item.ListaOrigen).each(function (i, lista) {
-                        console.log(lista);
                         $('#tablas #table1 tbody').append('<tr>' +
                             '<td>' + lista.origen + '</td>' + '<td>' + lista.fecha + '</td>' +
                             '<td>' + lista.hora + '</td>' + '<td>' + lista.aeropuerto + '</td>' + '</tr>');
@@ -140,7 +136,24 @@
 
     }
 
+    function VuelosDestino(destino) {
+        $.ajax({
+            url: '/Home/SearchFly',
+            data: { Origin: null, Destiny: destino },
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    $(item.ListaDestino).each(function (i, lista) {
+                        $('#tablas #table2 tbody').append('<tr>' +
+                            '<td>' + lista.destino + '</td>' + '<td>' + lista.fecha + '</td>' +
+                            '<td>' + lista.hora + '</td>' + '<td>' + lista.aeropuerto + '</td>' + '</tr>');
+                    });
+                });
+            }
+        });
 
+    }
 
 
 
