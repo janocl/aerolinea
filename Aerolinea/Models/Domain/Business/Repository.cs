@@ -20,8 +20,8 @@ namespace Aerolinea.Models.Domain.Business
             lista.Add(new VueloView()
             {
                 IdVuelo = lista.Count() + 1,
-                ListaVuelosOrigen = BusquedaVuelosOrigen().ToList().Where(x=>x.Origen == Origen).ToList(),
-                ListaVuelosDestino = BusquedaVuelosDestino().ToList().Where(x => x.Destino == Destino).ToList(),
+                ListaVuelosOrigen = BusquedaVuelosOrigen().Where(x => x.Origen == Origen).ToList(),
+                ListaVuelosDestino = BusquedaVuelosDestino().Where(x => x.Destino == Destino).ToList(),
                 // Elimina la duplicidad agrupandolos por una propiedad especifica
                 ItemsOrigen = BusquedaVuelosOrigen().GroupBy(x => x.Origen).Select(y => new SelectListItem { Text = y.First().Origen }).OrderBy(x=>x.Text),
                 ItemsDestino = BusquedaVuelosDestino().GroupBy(x => x.Destino).Select(y => new SelectListItem { Text = y.First().Destino }).OrderBy(x=>x.Text)
@@ -49,7 +49,7 @@ namespace Aerolinea.Models.Domain.Business
         
         } 
 
-        public IEnumerable<OrigenView> BusquedaVuelosOrigen()
+        public List<OrigenView> BusquedaVuelosOrigen()
         {
             using (var db = new AerolineaEntities())
             {
@@ -72,7 +72,7 @@ namespace Aerolinea.Models.Domain.Business
         }
 
 
-        public IEnumerable<DestinoView> BusquedaVuelosDestino()
+        public List<DestinoView> BusquedaVuelosDestino()
         {
             using (var db = new AerolineaEntities())
             {

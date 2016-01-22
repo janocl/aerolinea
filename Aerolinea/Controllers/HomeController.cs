@@ -56,8 +56,28 @@ namespace Aerolinea.Controllers
         public JsonResult SearchFly(string Origin, string Destiny)
         {
             var fly = mgr.BusquedaVuelos(Origin, Destiny);
-            return Json(fly, JsonRequestBehavior.AllowGet);
+            var query = fly.Select(x => new {
+
+                ListaOrigen = x.ListaVuelosOrigen.Select(p=> new
+                {
+                    origen = p.Origen,
+                    fecha = p.FechaSalida.ToShortDateString(),
+                    hora = p.HoraSalida.ToShortTimeString()+" hrs.",
+                    aeropuerto = p.Aeropuerto
+                }),
+
+                ListaDestino = x.ListaVuelosDestino.Select(p=> new
+                {
+                    destino = p.Destino,
+                    fecha = p.FechaDestino.ToShortDateString(),
+                    hora = p.HoraDestino.ToShortTimeString(),
+                    aeropuerto = p.Aeropuerto
+                })
+
+            });
+            return Json(query, JsonRequestBehavior.AllowGet);
         }
+
 
     }
 }

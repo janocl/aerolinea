@@ -113,14 +113,14 @@
 
         $("#DropDownOrigen").change(function () {
             $('#tablas #table1 tbody').empty();
-            Flights($(this).val());
+            VuelosOrigen($(this).val());
         });
 
 
     });
 
 
-    function Flights(origen) {
+    function VuelosOrigen(origen) {
         $.ajax({
             url: '/Home/SearchFly',
             data: { Origin: origen, Destiny: null },
@@ -128,17 +128,20 @@
             dataType: 'json',
             success: function (data) {
                 $(data).each(function (index, item) {
-                    $(item.ListaVuelosOrigen).each(function (i, lista) {
+                    $(item.ListaOrigen).each(function (i, lista) {
                         console.log(lista);
                         $('#tablas #table1 tbody').append('<tr>' +
-                            '<td>' + lista.Origen + '</td>' + '<td>' + lista.FechaSalida + '</td>' +
-                            '<td>' + lista.HoraSalida + '</td>' + '<td>' + lista.Aeropuerto + '</td>' + '</tr>');
+                            '<td>' + lista.origen + '</td>' + '<td>' + lista.fecha + '</td>' +
+                            '<td>' + lista.hora + '</td>' + '<td>' + lista.aeropuerto + '</td>' + '</tr>');
                     });
                 });
             }
         });
 
     }
+
+
+
 
 
 </script>
