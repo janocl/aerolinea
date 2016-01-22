@@ -112,6 +112,7 @@
         //});
 
         $("#DropDownOrigen").change(function () {
+            $('#tablas #table1 tbody').empty();
             Flights($(this).val());
         });
 
@@ -121,15 +122,16 @@
 
     function Flights(origen) {
         $.ajax({
-            // Falta pasar parametro al controlador
             url: '/Home/SearchFly',
             data: { Origin: origen, Destiny: null },
-            type: 'GET',
+            type: 'POST',
             dataType: 'json',
             success: function (data) {
                 $(data).each(function (index, item) {
-                    $('#tablas #table1 tbody tr').html('<td>' + item.ListaVuelosOrigen.Origen + '</td>');
-                    console.log(item.ListaVuelosOrigen);
+                    $(item.ListaVuelosOrigen).each(function (i, lista) {
+                        console.log(lista.Origen);
+                        $('#tablas #table1 tbody').append('<tr>'+'<td>'+ lista.Origen +'</td>'+'<td>'+ lista.Aeropuerto + '</td>'+'</tr>');
+                    })
                 });
             }
         });
