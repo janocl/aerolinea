@@ -236,7 +236,7 @@
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Shared\_SliderPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_Tabla.cshtml" />
+    <Content Include="Views\Home\_Tables.cshtml" />
     <Content Include="Views\Home\_Filters.cshtml" />
   </ItemGroup>
   <ItemGroup>
