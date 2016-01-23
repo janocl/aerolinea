@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Aerolinea.Models.VueloView>
+
+<div id="tablas" class="">
+    <div class="table-responsive">
+        <table id="table1" class="table table-hover">
+            <thead>
+                <tr class="btn-primary">
+                    <th>Origen</th>
+                    <th>Salida</th>
+                    <th>Hora</th>
+                    <th>Aeropuerto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.First().ListaVuelosOrigen == null || Model.First().ListaVuelosOrigen.Count() == 0)
+                {
+                    <tr><td>No se han encontrado vuelos disponibles.</td></tr>
+                }
+                else
+                {
+                    foreach (var item in Model.First().ListaVuelosOrigen)
+                    {
+
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Origen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.FechaSalida)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.HoraSalida)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Aeropuerto)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <table id="table2" class="table table-hover">
+            <thead>
+                <tr class="btn-primary">
+                    <th>Destino</th>
+                    <th>Llegada</th>
+                    <th>Hora</th>
+                    <th>Aeropuerto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.First().ListaVuelosDestino == null || Model.First().ListaVuelosDestino.Count() == 0)
+                {
+                    <tr><td>No se han encontrado vuelos disponibles.</td></tr>
+                }
+                else
+                {
+                    foreach (var item in Model.First().ListaVuelosDestino)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Destino)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.FechaDestino)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.HoraDestino)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Aeropuerto)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<div class="form-group col-md-12 text-center">
+    <button id="btnBuscar" type="button" value="" class="btn btn-default">SIGUIENTE</button>
+</div>

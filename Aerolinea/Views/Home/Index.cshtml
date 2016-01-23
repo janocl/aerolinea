@@ -29,8 +29,8 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="vuelos">
                             <div class="contenedores">
                                 <div id="busqueda">
-                                    @Html.Partial("_Filters2")
-                                    @Html.Partial("_Search")
+                                    @Html.Partial("_Filters")
+                                    @Html.Partial("_Tabla")
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                     $(item.ListaOrigen).each(function (i, lista) {
                         $('#tablas #table1 tbody').append('<tr>' +
                             '<td class="col-md-3">' + lista.origen + '</td>' + '<td class="col-md-3">' + lista.fecha + '</td>' +
-                            '<td class="col-md-3">' + lista.hora + '</td>' + '<td class="col-md-3">' + lista.aeropuerto + '</td>' + '</tr>');
+                            '<td class="col-md-2">' + lista.hora + '</td>' + '<td class="col-md-4">' + lista.aeropuerto + '</td>' + '</tr>');
                     });
                 });
             }
@@ -151,7 +151,7 @@
                     $(item.ListaDestino).each(function (i, lista) {
                         $('#tablas #table2 tbody').append('<tr>' +
                             '<td class="col-md-3">' + lista.destino + '</td>' + '<td class="col-md-3">' + lista.fecha + '</td>' +
-                            '<td class="col-md-3">' + lista.hora + '</td>' + '<td class="col-md-3">' + lista.aeropuerto + '</td>' + '</tr>');
+                            '<td class="col-md-2">' + lista.hora + '</td>' + '<td class="col-md-4">' + lista.aeropuerto + '</td>' + '</tr>');
                     });
                 });
             }
