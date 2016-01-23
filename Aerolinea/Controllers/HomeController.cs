@@ -70,7 +70,7 @@ namespace Aerolinea.Controllers
                 {
                     destino = p.Destino,
                     fecha = p.FechaDestino.ToShortDateString(),
-                    hora = p.HoraDestino.ToShortTimeString(),
+                    hora = p.HoraDestino.ToShortTimeString()+" hrs.",
                     aeropuerto = p.Aeropuerto
                 })
 

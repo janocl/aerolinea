@@ -26,7 +26,8 @@ namespace Aerolinea
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/BxSlider").Include(
-                      "~/Scripts/BxSlider/jquery.bxslider.min.js"));
+                      "~/Scripts/BxSlider/jquery.bxslider.min.js",
+                      "~/Scripts/BxSlider/images/"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

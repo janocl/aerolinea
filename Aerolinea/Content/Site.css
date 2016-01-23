@@ -13,6 +13,9 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
+#contenedor{
+    padding: 0 5%;
+}
 
 .contenedores{
     margin: 2em 0em;

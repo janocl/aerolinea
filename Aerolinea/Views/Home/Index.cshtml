@@ -9,8 +9,6 @@
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.css">
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="archives" type="image/x-icon" href="~/Scripts/BxSlider/images/bx_loader.gif" />
-<link rel="archives" type="image/x-icon" href="~/Scripts/BxSlider/images/controls.png" />
 @Styles.Render("~/Content/BxSlider")
 
 @Html.Partial("_SliderPartial")
@@ -53,9 +51,11 @@
 
 
             <div class="paneles col-md-12 panel panel-primary panel-heading" id="panel3">
-                <div>
+                <div id="contenedor">
                     <div class="panelsup" id="panel1">
                         <img class="img-responsive logo" src="http://oi60.tinypic.com/2uiumc3.jpg" width="70" alt="Logo">
+                        <h2>Bullets Airline</h2>
+                        <br />
                     </div>
                     <p class="text-justify center-block">
                         Chile es un país ubicado en la costa occidental de Sudamérica y limita con Bolivia, Perú, Argentina 
@@ -73,6 +73,9 @@
                         Los imponentes glaciares de Torres del Paine
                         Los famosos vinos del Valle Central.
                     </p>
+                    <br />
+                    <br />
+                    <h2>Destinos</h2>
                     <h3>Zona Norte de Chile</h3>
                     <img class="img-responsive center-block" src="http://vacacionesdoradas.cl/wp-content/uploads/2013/05/Lago.jpg" alt="Lago Chungara" width="1000" />
                     <h3>Zona Centro de Chile</h3>
@@ -97,6 +100,7 @@
             auto: true,
             infiniteLoop: true,
             speed: 500,
+            slideMargin: 0,
         });
 
         $('.calendar input').datepicker({
@@ -127,8 +131,8 @@
                 $(data).each(function (index, item) {
                     $(item.ListaOrigen).each(function (i, lista) {
                         $('#tablas #table1 tbody').append('<tr>' +
-                            '<td>' + lista.origen + '</td>' + '<td>' + lista.fecha + '</td>' +
-                            '<td>' + lista.hora + '</td>' + '<td>' + lista.aeropuerto + '</td>' + '</tr>');
+                            '<td class="col-md-3">' + lista.origen + '</td>' + '<td class="col-md-3">' + lista.fecha + '</td>' +
+                            '<td class="col-md-3">' + lista.hora + '</td>' + '<td class="col-md-3">' + lista.aeropuerto + '</td>' + '</tr>');
                     });
                 });
             }
@@ -146,8 +150,8 @@
                 $(data).each(function (index, item) {
                     $(item.ListaDestino).each(function (i, lista) {
                         $('#tablas #table2 tbody').append('<tr>' +
-                            '<td>' + lista.destino + '</td>' + '<td>' + lista.fecha + '</td>' +
-                            '<td>' + lista.hora + '</td>' + '<td>' + lista.aeropuerto + '</td>' + '</tr>');
+                            '<td class="col-md-3">' + lista.destino + '</td>' + '<td class="col-md-3">' + lista.fecha + '</td>' +
+                            '<td class="col-md-3">' + lista.hora + '</td>' + '<td class="col-md-3">' + lista.aeropuerto + '</td>' + '</tr>');
                     });
                 });
             }
