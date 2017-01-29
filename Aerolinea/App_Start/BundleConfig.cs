@@ -8,7 +8,7 @@ namespace Aerolinea
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.UseCdn = true; //Enable CDN support
+            //bundles.UseCdn = true; //Enable CDN support
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -22,25 +22,24 @@ namespace Aerolinea
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/BxSlider").Include(
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                      "~/Scripts/bootstrap-datepicker.min.js",
                       "~/Scripts/BxSlider/jquery.bxslider.min.js",
                       "~/Scripts/BxSlider/images/"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/normalize.css",
+                      "~/Content/bootstrap.datepicker.min.css",
+                      "~/Content/bootstrap.datepaicker3.css",
+                      "~/Content/jquery.bxslider.min.css",
                       "~/Content/Site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/BxSlider").Include(
-                      "~/Content/jquery.bxslider.css"));
-
-            var AwesomeCdn = "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+            //var AwesomeCdn = "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
             
-            bundles.Add(new StyleBundle("~/Content/awesome", AwesomeCdn).Include(
-                        "~/Content/font-awesome.min.css"));
+            //bundles.Add(new StyleBundle("~/Content/awesome", AwesomeCdn).Include(
+            //            "~/Content/font-awesome.min.css"));
         }
     }
 }

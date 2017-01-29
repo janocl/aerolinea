@@ -5,12 +5,10 @@
     ViewBag.Title = "Home Page";
 }
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-<link href="~/Content/normalize.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker3.min.css">
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.5.0/bootstrap-table.min.css">
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-@Styles.Render("~/Content/BxSlider")
 
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/js")
+@Styles.Render("~/Content/css")
 @Html.Partial("_SliderPartial")
 
 
@@ -90,11 +88,10 @@
 
 
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/BxSlider")
-<script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
+
 <script type="text/javascript">
-    $(document).ready(function () {
+
+    $(function () {
 
         $('.bxslider').bxSlider({
             auto: true,
@@ -103,7 +100,7 @@
             slideMargin: 0,
         });
 
-        $('.calendar input').datepicker({
+        $('#calendar1,#calendar2').datepicker({
             format: "dd/mm/yyyy"
         });
 
@@ -118,7 +115,9 @@
         });
 
 
+
     });
+
 
 
     function VuelosOrigen(origen) {
