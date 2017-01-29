@@ -12,12 +12,12 @@
 <div class="input-append form-group calendar col-md-2 grupo1">
     <span class="add-on"><i class="fa fa-map-marker"></i></span>
     @Html.Label("Ida")
-    @Html.TextBoxFor(model => model.First().FechaSalida, new { @class = "form-control", @id = "calendar1" })
+    @Html.TextBoxFor(model => model.First().FechaSalida, "{0:MM/dd/yyyy}", new { @class = "form-control", @id = "calendar1" })
 </div>
 <div class="input-append form-group calendar col-md-2 grupo1">
     <span class="add-on"><i class="fa fa-map-marker"></i></span>
     @Html.Label("Retorno")
-    @Html.TextBoxFor(model => model.First().FechaLlegada, new { @class = "form-control", @id = "calendar2" })
+    @Html.TextBoxFor(model => model.First().FechaLlegada, "{0:MM/dd/yyyy}", new { @class = "form-control", @id = "calendar2" })
 </div>
 <div class="form-group col-md-2 grupo1">
     @Html.Label("Pasajeros", new { @class = "control-label etiqueta" })
@@ -45,4 +45,13 @@
     @Html.Label("Categoria", new { @class = "control-label etiqueta" })
     @Html.DropDownList("Categoria", new SelectList(categoria), new { @class = "form-control etiqueta" })
 </div>
+
+
+<script type="text/javascript">
+    $(function () {
+        //$('.calendar input').datepicker({format: "dd/mm/yyyy"});
+
+    })
+
+</script>
 

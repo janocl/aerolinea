@@ -92,6 +92,7 @@
 <script type="text/javascript">
 
     $(function () {
+        console.log("funcionaaa....")
 
         $('.bxslider').bxSlider({
             auto: true,
@@ -100,7 +101,8 @@
             slideMargin: 0,
         });
 
-        $('#calendar1,#calendar2').datepicker({
+
+        $('.calendar input').datepicker({
             format: "dd/mm/yyyy"
         });
 
