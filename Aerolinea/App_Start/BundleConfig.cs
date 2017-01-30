@@ -32,7 +32,7 @@ namespace Aerolinea
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap.datepicker.min.css",
-                      "~/Content/bootstrap.datepaicker3.css",
+                      "~/Content/bootstrap-datepicker3.css",
                       "~/Content/jquery.bxslider.min.css",
                       "~/Content/Site.css"));
 
